@@ -1168,7 +1168,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #ff0aff;
+  background: #1ae341;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -2670,16 +2670,6 @@ ul.breadcrumb li + li:last-child {
     margin: 8px 0 0;
   }
 }
-.content-wrap {
-  opacity: 0.9;
-}
-.sidebar,
-.sidebar-inner {
-  opacity: 0.9;
-}
-.header-inner {
-  background: rgba(255,255,255,0.9);
-}
 .sidebar-inner,
 .sidebar,
 .header-inner,
@@ -2690,12 +2680,23 @@ ul.breadcrumb li + li:last-child {
 .highlight,
 .post-copyright,
 .search-popup,
-.line-numbers {
+.line-numbers,
+.back-to-top {
   border-radius: 15px !important;
 }
 .search-header {
   border-top-left-radius: 15px !important;
   border-top-right-radius: 15px !important;
+}
+.post-block,
+.header-inner,
+.sidebar-inner {
+  transition: all 0.5s ease-in-out;
+}
+.post-block:hover,
+.header-inner:hover,
+.sidebar-inner:hover {
+  box-shadow: 0 0 15px rgba(0,0,0,0.6);
 }
 .site-author-image {
   max-width: 120px;
