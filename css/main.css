@@ -1168,7 +1168,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #ebff17;
+  background: #78ff47;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -2680,7 +2680,8 @@ body {
 .content-wrap {
   opacity: 0.9;
 }
-.sidebar {
+.sidebar,
+.sidebar-inner {
   opacity: 0.9;
 }
 .header-inner {
@@ -2703,6 +2704,10 @@ body {
   border-top-left-radius: 15px !important;
   border-top-right-radius: 15px !important;
 }
+.site-author-image {
+  max-width: 120px;
+  max-height: 120px;
+}
 img {
-  width: 50%;
+  height: 450px;
 }
