@@ -1168,7 +1168,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #62ffed;
+  background: #ffffb6;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -2702,6 +2702,9 @@ ul.breadcrumb li + li:last-child {
   height: 30px;
   line-height: 30px;
   border-radius: 15px !important;
+}
+.header {
+  margin-top: 5px;
 }
 .site-author-image {
   max-width: 120px;
