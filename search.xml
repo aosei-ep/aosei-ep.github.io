@@ -219,8 +219,8 @@
 
 
 <h4 id="714-买卖股票的最佳时机含手续费"><a href="#714-买卖股票的最佳时机含手续费" class="headerlink" title="714. 买卖股票的最佳时机含手续费"></a><a href="https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-with-transaction-fee/">714. 买卖股票的最佳时机含手续费</a></h4><ul>
-<li>**sell: ** 找到最佳卖出价格</li>
-<li>**buy: ** 找到最佳买入价格</li>
+<li><b>sell: </b> 找到最佳卖出价格</li>
+<li><b>buy: </b> 找到最佳买入价格</li>
 </ul>
 <p><strong>Java</strong></p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">&#123;</span>
