@@ -15,7 +15,7 @@
   <entry>
     <title>动态规划</title>
     <url>/2022/04/04/DynamicProgramming/</url>
-    <content><![CDATA[<h1 id="动态规划"><a href="#动态规划" class="headerlink" title="动态规划"></a>动态规划</h1><h4 id="什么是动态规划"><a href="#什么是动态规划" class="headerlink" title="什么是动态规划"></a><em><a href="https://www.zhihu.com/question/23995189">什么是动态规划</a></em></h4><p>动态规划算法通常用于求解具有某种最优性质的问题。在这类问题中，可能会有许多可行解。每一个解都对应于一个值，我们希望找到具有最优值的解。</p>
+    <content><![CDATA[<h4 id="什么是动态规划"><a href="#什么是动态规划" class="headerlink" title="什么是动态规划"></a><em><a href="https://www.zhihu.com/question/23995189">什么是动态规划</a></em></h4><p>动态规划算法通常用于求解具有某种最优性质的问题。在这类问题中，可能会有许多可行解。每一个解都对应于一个值，我们希望找到具有最优值的解。</p>
 <p>其基本思想也是将待求解问题分解成若干个子问题，先求解子问题，然后从这些子问题的解得到原问题的解。</p>
 <span id="more"></span>
 
