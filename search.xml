@@ -123,8 +123,10 @@
 <p>顺序表是将表中的结点一次存放在计算机内存中一组地址连续的存储单元中。</p>
 <img src="/2022/04/10/DataStructure/sequence_1.png" class="" title="sequence">
 
-<p>顺序表的实现</p>
+<p>顺序表的<code>C语言</code>实现</p>
 <figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* 顺序表结构体 */</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> MAXSIZE 100</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> &#123;</span></span><br><span class="line">    <span class="type">int</span> data[MAXSIZE];</span><br><span class="line">    <span class="type">int</span> size;</span><br><span class="line">&#125; sequence_list;</span><br></pre></td></tr></table></figure>
+
+
 
 
 
@@ -167,28 +169,6 @@
       <tags>
         <tag>数据结构与算法</tag>
         <tag>C语言 - 顺序表 - 链表 - 栈 - 队列 - 递归 - 数组 - 字符串 - 树 - 二叉树 - 图 - 检索 - 排序</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>我的第一篇博客</title>
-    <url>/2022/03/31/first-blog/</url>
-    <content><![CDATA[<p>欢迎来到这！这是测试</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Hello</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span>&#123;</span><br><span class="line">		System.out.println(<span class="string">&quot;Hello World!&quot;</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<span id="more"></span>
-
-<img src="/2022/03/31/first-blog/logo.png" class="" title="alt">
-
-
-
-<img src="/2022/03/31/first-blog/4.jpg" class="">]]></content>
-      <categories>
-        <category>日记</category>
-      </categories>
-      <tags>
-        <tag>日记</tag>
       </tags>
   </entry>
   <entry>
@@ -290,6 +270,28 @@
         <tag>Java</tag>
         <tag>python</tag>
         <tag>LeetCode</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>我的第一篇博客</title>
+    <url>/2022/03/31/first-blog/</url>
+    <content><![CDATA[<p>欢迎来到这！这是测试</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Hello</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span>&#123;</span><br><span class="line">		System.out.println(<span class="string">&quot;Hello World!&quot;</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<span id="more"></span>
+
+<img src="/2022/03/31/first-blog/logo.png" class="" title="alt">
+
+
+
+<img src="/2022/03/31/first-blog/4.jpg" class="">]]></content>
+      <categories>
+        <category>日记</category>
+      </categories>
+      <tags>
+        <tag>日记</tag>
       </tags>
   </entry>
 </search>
