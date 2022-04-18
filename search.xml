@@ -160,6 +160,38 @@
 
 <p><strong>【实例】</strong></p>
 <p><u>算术表达式求值</u></p>
+<p>表达式类型有三种：</p>
+<ul>
+<li>中缀表达式 (日常用的表达式)<ol>
+<li>括号内的操作先执行</li>
+<li>先乘除，后加减</li>
+<li>按从左到右执行</li>
+</ol>
+</li>
+<li>前缀表达式</li>
+<li>后缀表达式</li>
+</ul>
+<p>[例]：中缀、后缀转换        </p>
+<table>
+<thead>
+<tr>
+<th>中缀表达式</th>
+<th>后缀表达式</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>3 - 5 * 2</td>
+<td>3 5 2 * -</td>
+</tr>
+<tr>
+<td>(3 - 5) * 2</td>
+<td>3 5 - 2 *</td>
+</tr>
+<tr>
+<td>3 &#x2F; (5 * 2 + 1)</td>
+<td>3 5 2 * 1 + &#x2F;</td>
+</tr>
+</tbody></table>
 <br>
 
 <h2 id="队列的概念及其应用"><a href="#队列的概念及其应用" class="headerlink" title="队列的概念及其应用"></a>队列的概念及其应用</h2><br>
