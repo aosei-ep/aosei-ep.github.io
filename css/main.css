@@ -1193,7 +1193,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #06d7b8;
+  background: #7e1d0f;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -2756,6 +2756,10 @@ blockquote p {
 .copy-btn {
   right: 8px;
   padding: 2.315px 4.86px;
+  transition: all 0.2s ease-in-out;
+}
+.copy-btn:hover {
+  top: 6px;
 }
 code {
   margin: 0 3px;
