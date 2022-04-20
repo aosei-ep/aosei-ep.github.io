@@ -1193,7 +1193,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #0d3c90;
+  background: #0a5eb5;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -2746,8 +2746,8 @@ h1 {
 blockquote {
   padding-top: 0.1px;
   padding-bottom: 0.1px;
-  border-left-color: #bee947;
-  background-color: rgba(190,233,71,0.15);
+  border-left-color: #fc6423;
+  background-color: rgba(252,100,35,0.1);
   margin-bottom: 20px;
 }
 blockquote p {
