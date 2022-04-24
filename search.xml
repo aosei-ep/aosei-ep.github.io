@@ -95,7 +95,7 @@
 </ul>
 </li>
 </ul>
-<h4 id="曲线的渐近线"><a href="#曲线的渐近线" class="headerlink" title="曲线的渐近线"></a>曲线的渐近线</h4><ul>
+<h3 id="曲线的渐近线"><a href="#曲线的渐近线" class="headerlink" title="曲线的渐近线"></a>曲线的渐近线</h3><ul>
 <li><p><strong>水平渐近线</strong></p>
 <p>若 $\lim\limits_{x\to\infty}f(x)&#x3D;A$ 则 $y &#x3D; A$ 是曲线的<u>水平渐近线</u>（$x\to+\infty$ 或 $x\to-\infty$）</p>
 </li>
