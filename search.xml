@@ -27,6 +27,7 @@
 
 
 <h2 id="极限"><a href="#极限" class="headerlink" title="极限"></a>极限</h2><h3 id="常用等价无穷小代换-lim-x-to-0"><a href="#常用等价无穷小代换-lim-x-to-0" class="headerlink" title="常用等价无穷小代换($\lim_{x \to 0}$)"></a>常用等价无穷小代换($\lim_{x \to 0}$)</h3><p><code>x</code> ~ <code>sinx</code> ~ <code>tanx</code> ~ <code>arcsinx</code> ~ <code>arctanx</code> ~ <code>$e^&#123;x&#125; - 1$</code> ~ <code>ln(1 + x)</code></p>
+<p><code>1 - cosx</code> ~ <code>secx - 1</code> ~ <code>$\frac&#123;1&#125;&#123;2&#125;x^2$</code></p>
 <p><br><br></p>
 ]]></content>
       <categories>
