@@ -1,6 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>高等数学常用公式汇总</title>
+    <url>/2022/04/22/AdvancedMathematics/</url>
+    <content><![CDATA[<head>
+    <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            tex2jax: {
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+            inlineMath: [['$','$']]
+            }
+        });
+    </script>
+</head>
+
+<h2 id="三角函数"><a href="#三角函数" class="headerlink" title="三角函数"></a>三角函数</h2><h3 id="二倍角"><a href="#二倍角" class="headerlink" title="二倍角"></a>二倍角</h3><p><code>sin2α</code> &#x3D; <code>2 sinα cosα</code></p>
+<p><code>cos2α</code> &#x3D; <code>cos<sup>2</sup>α - sin<sup>2</sup>α</code> &#x3D; <code>2cos<sup>2</sup>α - 1</code> &#x3D; <code>1 - 2sin<sup>2</sup>α</code></p>
+<p><code>tan2α</code> &#x3D; <code><strong>$\frac&#123;2tanα&#125;&#123;1 - tan^&#123;2&#125;α&#125;$</strong></code>	【注】α ≠ <strong>$\frac{π}{2}$</strong> + kπ ; α ≠ <strong>$\frac{π}{4}$</strong> + kπ (k∈Z)</p>
+<h3 id="半角"><a href="#半角" class="headerlink" title="半角"></a>半角</h3><p><code>sin$\frac&#123;α&#125;&#123;2&#125;$</code> &#x3D; <code>±$\sqrt&#123;\frac&#123;1 - cosα&#125;&#123;2&#125;&#125;$</code></p>
+<p><code>cos$\frac&#123;α&#125;&#123;2&#125;$</code> &#x3D; <code>±$\sqrt&#123;\frac&#123;1 + cosα&#125;&#123;2&#125;&#125;$</code></p>
+<p><code>tan$\frac&#123;α&#125;&#123;2&#125;$</code> &#x3D; <code>±$\sqrt&#123;\frac&#123;1 - cosα&#125;&#123;1 + cosα&#125;&#125;$</code></p>
+<p><code>sin$\frac&#123;θ&#125;&#123;2&#125;$</code> &#x3D; <code>$\frac&#123;1 - cosθ&#125;&#123;sinθ&#125;$</code> &#x3D; <code>$\frac&#123;sinθ&#125;&#123;1 + cosθ&#125;$</code></p>
+<br>
+
+
+
+<h2 id="极限"><a href="#极限" class="headerlink" title="极限"></a>极限</h2><h3 id="常用等价无穷小代换-lim-x-to-0"><a href="#常用等价无穷小代换-lim-x-to-0" class="headerlink" title="常用等价无穷小代换($\lim_{x \to 0}$)"></a>常用等价无穷小代换($\lim_{x \to 0}$)</h3><p><code>x</code> ~ <code>sinx</code> ~ <code>tanx</code> ~ <code>arcsinx</code> ~ <code>arctanx</code> ~ <code>$e^&#123;x&#125; - 1$</code> ~ <code>ln(1 + x)</code></p>
+<p><br><br></p>
+]]></content>
+      <categories>
+        <category>数学</category>
+      </categories>
+      <tags>
+        <tag>高等数学</tag>
+        <tag>线性代数</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>数据结构</title>
     <url>/2022/04/10/DataStructure/</url>
     <content><![CDATA[<p><em><u>计算机科班、考研的重要课程</u></em></p>
@@ -95,7 +132,7 @@
 <br>
 
 <p>常见的渐进时间复杂度</p>
-<p>​    O(1) &lt; O(log<sub>2</sub>n) &lt; O(n) &lt; O(nlog<sub>2</sub>n) &lt; O(n<sup>2</sup>) &lt; O(n<sup>3</sup>) &lt; O(2<sup>n</sup>) &lt; O(n!) &lt; O(n<sup>n</sup>)</p>
+<p>​	O(1) &lt; O(log<sub>2</sub>n) &lt; O(n) &lt; O(nlog<sub>2</sub>n) &lt; O(n<sup>2</sup>) &lt; O(n<sup>3</sup>) &lt; O(2<sup>n</sup>) &lt; O(n!) &lt; O(n<sup>n</sup>)</p>
 <br>
 
 <p><strong>【注】</strong></p>
@@ -121,7 +158,7 @@
 
 <h1 id="线性表及其顺序存储"><a href="#线性表及其顺序存储" class="headerlink" title="线性表及其顺序存储"></a>线性表及其顺序存储</h1><h2 id="顺序表及其应用"><a href="#顺序表及其应用" class="headerlink" title="顺序表及其应用"></a>顺序表及其应用</h2><p>采用<strong>顺序存储</strong>方式来存储的<strong>线性表</strong>称为<strong>顺序表</strong>。</p>
 <p>顺序表是将表中的结点一次存放在计算机内存中一组地址连续的存储单元中。</p>
-<img src="/2022/04/10/DataStructure/sequence_1.png" class="" title="sequence">
+<img src="/2022/04/10/DataStructure/sequence_1.png" class="" title="顺序表">
 
 <p>顺序表的<code>C语言</code>实现</p>
 <p><u>定义顺序表结构体</u></p>
@@ -170,7 +207,7 @@
 <p>从左到右执行，当遇到一个操作符，则将<u>操作符前的两个数</u>弹出执行对应操作</p>
 </li>
 </ul>
-<p>[例]：中缀、后缀转换        </p>
+<p>[例]：中缀、后缀转换		</p>
 <table>
 <thead>
 <tr>
@@ -214,11 +251,23 @@
 <h2 id="单链表"><a href="#单链表" class="headerlink" title="单链表"></a>单链表</h2><p>是<u>链式存储</u>对的一种形式，其结点一般含有<code>info</code>（存放数据信息）和<code>next</code>（后继结点地址指针）两个域。</p>
 <img src="/2022/04/10/DataStructure/link_1.png" class="">
 
+<p><u>单链表结构体实现</u>(<code>C语言</code>)</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * @desc 单链表结构体</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="type">int</span> datatype;</span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">link_node</span> &#123;</span></span><br><span class="line">    datatype info;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">link_node</span> *<span class="title">next</span>;</span></span><br><span class="line">&#125; node;</span><br></pre></td></tr></table></figure>
+
+<br>
+
+<h2 id="带头结点的单链表及其应用"><a href="#带头结点的单链表及其应用" class="headerlink" title="带头结点的单链表及其应用"></a>带头结点的单链表及其应用</h2><p>带头结点的单链表与不带头结点的单链表区别在于<u>head结点</u>与后续结点的结构是一致的。</p>
+<img src="/2022/04/10/DataStructure/link_2.png" class="" title="带头结点的单链表">
+
+<p>带头结点单链表的<code>C语言</code>实现</p>
+<p><u>初始化单链表</u></p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * @desc 初始化头结点</span></span><br><span class="line"><span class="comment"> * @return 头结点head</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">node *<span class="title function_">init</span><span class="params">()</span> &#123;</span><br><span class="line">    node *head = (node*) <span class="built_in">malloc</span> (<span class="keyword">sizeof</span>(node));</span><br><span class="line">    head-&gt;next = <span class="literal">NULL</span>;</span><br><span class="line">    <span class="keyword">return</span> head;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 
 
 <br>
 
-<h2 id="带头结点的单链表及其应用"><a href="#带头结点的单链表及其应用" class="headerlink" title="带头结点的单链表及其应用"></a>带头结点的单链表及其应用</h2><h2 id="循环单链表与双链表"><a href="#循环单链表与双链表" class="headerlink" title="循环单链表与双链表"></a>循环单链表与双链表</h2><h2 id="链式栈与链式队列"><a href="#链式栈与链式队列" class="headerlink" title="链式栈与链式队列"></a>链式栈与链式队列</h2><br>
+<h2 id="循环单链表与双链表"><a href="#循环单链表与双链表" class="headerlink" title="循环单链表与双链表"></a>循环单链表与双链表</h2><h2 id="链式栈与链式队列"><a href="#链式栈与链式队列" class="headerlink" title="链式栈与链式队列"></a>链式栈与链式队列</h2><br>
 
 <br>
 
