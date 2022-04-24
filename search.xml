@@ -26,16 +26,62 @@
 
 
 
-<h2 id="极限"><a href="#极限" class="headerlink" title="极限"></a>极限</h2><h3 id="常用等价无穷小代换-lim-x-to-0"><a href="#常用等价无穷小代换-lim-x-to-0" class="headerlink" title="常用等价无穷小代换($\lim_{x \to 0}$)"></a>常用等价无穷小代换($\lim_{x \to 0}$)</h3><p><code>$x$</code> ~ <code>$sinx$</code> ~ <code>$tanx$</code> ~ <code>$arcsinx$</code> ~ <code>$arctanx$</code> ~ <code>$e^&#123;x&#125; - 1$</code> ~ <code>$ln(1 + x)$</code></p>
+<h2 id="极限"><a href="#极限" class="headerlink" title="极限"></a>极限</h2><h3 id="常用等价无穷小代换-lim-limits-x-to-0"><a href="#常用等价无穷小代换-lim-limits-x-to-0" class="headerlink" title="常用等价无穷小代换($\lim\limits_{x \to 0}$)"></a>常用等价无穷小代换($\lim\limits_{x \to 0}$)</h3><p><code>$x$</code> ~ <code>$sinx$</code> ~ <code>$tanx$</code> ~ <code>$arcsinx$</code> ~ <code>$arctanx$</code> ~ <code>$e^&#123;x&#125; - 1$</code> ~ <code>$ln(1 + x)$</code></p>
 <p><code>$a^x - 1$</code> ~ <code>$xlna$</code></p>
 <p><code>$log_a(1 + x)$</code> ~ <code>$\frac&#123;x&#125;&#123;lnx&#125;$</code></p>
-<p><code>1 - cos$x$</code> ~ <code>sec$x$ - 1</code> ~ <code>$\frac&#123;1&#125;&#123;2&#125;x^2$</code></p>
+<p><code>$1 - cosx$</code> ~ <code>$secx - 1$</code> ~ <code>$\frac&#123;1&#125;&#123;2&#125;x^2$</code></p>
 <p><code>$(1 + Bx)^a - 1$</code> ~ <code>$aBx$</code>	<strong>【拓展】若</strong>$α(x) \to 0$<strong>，</strong> $α(x)β(x) \to 0$<strong>，则</strong><code>$[1 + α(x)]^&#123;β(x)&#125; - 1$</code> ~ <code>$α(x)β(x)$</code></p>
-<p><code>$x$ - sin$x$</code> ~ <code>arcsin$x$ - $x$</code> ~ <code>$\frac&#123;1&#125;&#123;6&#125;x^3$</code></p>
-<p><code>$x$ - ln(1 + $x$)</code> ~ <code>$\frac&#123;1&#125;&#123;2&#125;x^2$</code></p>
+<p><code>$x - sinx$</code> ~ <code>$arcsinx - x$</code> ~ <code>$\frac&#123;1&#125;&#123;6&#125;x^3$</code></p>
+<p><code>$x - ln(1 + x)$</code> ~ <code>$\frac&#123;1&#125;&#123;2&#125;x^2$</code></p>
 <p><code>tan$x$ - $x$</code> ~ <code>$x$ - arctan$x$</code> ~ <code>$\frac&#123;1&#125;&#123;3&#125;x^3$</code></p>
-<p><br><br></p>
-]]></content>
+<h3 id="1-infty-型极限"><a href="#1-infty-型极限" class="headerlink" title="$1^\infty$型极限"></a>$1^\infty$型极限</h3><p><strong>若</strong> $\lim\alpha(x) &#x3D; 0$<strong>，</strong>$\lim\beta(x) &#x3D; \infty$，<strong>且</strong> $\lim\alpha(x)\beta(x) &#x3D; A$<strong>，则</strong> <code>$\lim(1 + \alpha(x))^\beta(x) = e^A$</code></p>
+<h3 id="间断点"><a href="#间断点" class="headerlink" title="间断点"></a>间断点</h3><ol>
+<li><strong>第一类间断点：</strong>左右极限点均存在<ul>
+<li>可去间断点：左极限 &#x3D; 右极限</li>
+<li>跳跃间断点：左极限 ≠ 右极限</li>
+</ul>
+</li>
+<li><strong>第二类间断点：</strong>左右极限中至少有一个不存在<ul>
+<li>无穷间断点：【例】$\lim\limits_{x \to \infty}\frac{1}{x}$</li>
+<li>振动间断点：【例】$\lim\limits_{x \to \infty}\sin x$</li>
+</ul>
+</li>
+</ol>
+<p><em><u>第二类间断点不需要说明具体类型</u></em></p>
+<br>
+
+<br>
+
+<h2 id="导数"><a href="#导数" class="headerlink" title="导数"></a>导数</h2><h3 id="基本初等函数的导数公式"><a href="#基本初等函数的导数公式" class="headerlink" title="基本初等函数的导数公式"></a>基本初等函数的导数公式</h3><ol>
+<li>$(a^x)^{‘} &#x3D; a^x\ln a$</li>
+<li>$(\log _ax)^{‘} &#x3D; \frac{1}{x\ln a}$</li>
+<li>$(\tan x)^{‘} &#x3D; \sec^2x$</li>
+<li>$(\cot x)^{‘} &#x3D; -\csc^2x$</li>
+<li>$(\sec x)^{‘} &#x3D; \sec x\tan x$</li>
+<li>$(\csc x)^{‘} &#x3D; -\csc x\cot x$</li>
+<li>$(\arcsin x)^{‘} &#x3D; \frac{1}{\sqrt{1 - x^2}}$</li>
+<li>$(\arccos x)^{‘} &#x3D; -\frac{1}{\sqrt{1 - x^2}}$</li>
+<li>$(\arctan x)^{‘} &#x3D; \frac{1}{1 + x^2}$</li>
+<li>$(\text{arccot} x)^{‘} &#x3D; -\frac{1}{1 + x^2}$</li>
+</ol>
+<h3 id="常用高阶导"><a href="#常用高阶导" class="headerlink" title="常用高阶导"></a>常用高阶导</h3><ol>
+<li>$(\sin x)^{(n)} &#x3D; \sin(x + n\cdot\frac{\pi}{2})$</li>
+<li>$(\cos x)^{(n)} &#x3D; \cos(x + n\cdot\frac{\pi}{2})$</li>
+<li>$(u \pm v)^{(n)} &#x3D; u^{(n)} \pm v^{(n)}$</li>
+<li>$(uv)^{(n)} &#x3D; \sum\limits_{i &#x3D; 1}^n C{^k_n}u^{(k)}v^{(n-k)}$</li>
+</ol>
+<h3 id="常用泰勒公式"><a href="#常用泰勒公式" class="headerlink" title="常用泰勒公式"></a>常用泰勒公式</h3><ol>
+<li>$e^x &#x3D; 1 + x + \frac{x^2}{2!} + \cdots + \frac{x^n}{n!} + o(x^n)$</li>
+<li>$\sin x &#x3D; x - \frac{x^3}{3!} + \cdots + (-1)^{n - 1}\frac{x^{2n - 1}}{(2n - 1)!} + o(x^{2n})$</li>
+<li>$\cos x &#x3D; 1 - \frac{x^2}{2!} + \cdots + (-1)^n \frac{x^{2n}}{(2n)!} + o(x^{2n})$</li>
+<li>$\ln (1 + x) &#x3D; x - \frac{x^2}{2} + \cdots + (-1)^{n - 1}\frac{x^n}{n} + o(x^n)$</li>
+<li>$(1 + x)^\alpha &#x3D; 1 + \alpha x + \frac{\alpha(\alpha - 1)}{2!}x^2 + \cdots + \frac{\alpha(\alpha - 1)\cdots(\alpha- n + 1)}{n!}x^n + o(x^n)$</li>
+</ol>
+<p><strong>存在</strong> $\alpha(x) \text~ \beta(x) \Rightarrow \alpha(x) &#x3D; \beta(x) + o(\beta(x))$</p>
+<p><strong>【例】</strong> $\tan x - x \text~ \frac{1}{3}x^3 \Rightarrow \tan x &#x3D; x + \frac{1}{3}x^3 + o(x^3)$</p>
+<br>
+
+<br>]]></content>
       <categories>
         <category>数学</category>
       </categories>
