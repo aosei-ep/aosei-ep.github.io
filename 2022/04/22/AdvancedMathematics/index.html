@@ -30,7 +30,7 @@
 <meta property="og:description" content="高数、线代常用公式和知识点">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-04-22T12:26:41.000Z">
-<meta property="article:modified_time" content="2022-04-24T09:11:30.453Z">
+<meta property="article:modified_time" content="2022-04-24T09:46:24.630Z">
 <meta property="article:author" content="hep">
 <meta property="article:tag" content="高等数学">
 <meta property="article:tag" content="线性代数">
@@ -233,7 +233,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-04-24 17:11:30" itemprop="dateModified" datetime="2022-04-24T17:11:30+08:00">2022-04-24</time>
+                <time title="修改时间：2022-04-24 17:46:24" itemprop="dateModified" datetime="2022-04-24T17:46:24+08:00">2022-04-24</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -251,14 +251,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>2.6k</span>
+              <span>3.2k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>2 分钟</span>
+              <span>3 分钟</span>
             </span>
             <div class="post-description">高数、线代常用公式和知识点</div>
 
@@ -321,16 +321,16 @@
 <br>
 
 <h2 id="导数"><a href="#导数" class="headerlink" title="导数"></a>导数</h2><h3 id="基本初等函数的导数公式"><a href="#基本初等函数的导数公式" class="headerlink" title="基本初等函数的导数公式"></a>基本初等函数的导数公式</h3><ol>
-<li>$(a^x)^{‘} &#x3D; a^x\ln a$</li>
-<li>$(\log _ax)^{‘} &#x3D; \frac{1}{x\ln a}$</li>
-<li>$(\tan x)^{‘} &#x3D; \sec^2x$</li>
-<li>$(\cot x)^{‘} &#x3D; -\csc^2x$</li>
-<li>$(\sec x)^{‘} &#x3D; \sec x\tan x$</li>
-<li>$(\csc x)^{‘} &#x3D; -\csc x\cot x$</li>
-<li>$(\arcsin x)^{‘} &#x3D; \frac{1}{\sqrt{1 - x^2}}$</li>
-<li>$(\arccos x)^{‘} &#x3D; -\frac{1}{\sqrt{1 - x^2}}$</li>
-<li>$(\arctan x)^{‘} &#x3D; \frac{1}{1 + x^2}$</li>
-<li>$(\text{arccot} x)^{‘} &#x3D; -\frac{1}{1 + x^2}$</li>
+<li>$(a^x)^{′} &#x3D; a^x\ln a$</li>
+<li>$(\log _ax)^{′} &#x3D; \frac{1}{x\ln a}$</li>
+<li>$(\tan x)^{′} &#x3D; \sec^2x$</li>
+<li>$(\cot x)^{′} &#x3D; -\csc^2x$</li>
+<li>$(\sec x)^{′} &#x3D; \sec x\tan x$</li>
+<li>$(\csc x)^{′} &#x3D; -\csc x\cot x$</li>
+<li>$(\arcsin x)^{′} &#x3D; \frac{1}{\sqrt{1 - x^2}}$</li>
+<li>$(\arccos x)^{′} &#x3D; -\frac{1}{\sqrt{1 - x^2}}$</li>
+<li>$(\arctan x)^{′} &#x3D; \frac{1}{1 + x^2}$</li>
+<li>$(\text{arccot} x)^{′} &#x3D; -\frac{1}{1 + x^2}$</li>
 </ol>
 <h3 id="常用高阶导"><a href="#常用高阶导" class="headerlink" title="常用高阶导"></a>常用高阶导</h3><ol>
 <li>$(\sin x)^{(n)} &#x3D; \sin(x + n\cdot\frac{\pi}{2})$</li>
@@ -347,6 +347,33 @@
 </ol>
 <p><strong>存在</strong> $\alpha(x) \text~ \beta(x) \Rightarrow \alpha(x) &#x3D; \beta(x) + o(\beta(x))$</p>
 <p><strong>【例】</strong> $\tan x - x \text~ \frac{1}{3}x^3 \Rightarrow \tan x &#x3D; x + \frac{1}{3}x^3 + o(x^3)$</p>
+<h3 id="曲线的凹凸性"><a href="#曲线的凹凸性" class="headerlink" title="曲线的凹凸性"></a>曲线的凹凸性</h3><ul>
+<li><strong>凹</strong> <ul>
+<li><strong>定义</strong> $f(\frac{x_1 + x_2}{2}) &lt; \frac{f(x_1)+f(x_2)}{2}$</li>
+<li><strong>定理</strong> 若在区间 $I$ 上 $f^{′′}&gt;0$ 则曲线 $y &#x3D; f(x)$ 在 $I$ 上是<b><u>凹</u></b>的</li>
+</ul>
+</li>
+<li><strong>凸</strong> <ul>
+<li><strong>定义</strong> $f(\frac{x_1 + x_2}{2}) &gt; \frac{f(x_1)+f(x_2)}{2}$</li>
+<li><strong>定理</strong> 若在区间 $I$ 上 $f^{′′}&lt;0$ 则曲线 $y &#x3D; f(x)$ 在 $I$ 上是<b><u>凸</u></b>的</li>
+</ul>
+</li>
+<li><strong>拐点</strong>(凹凸发生改变)<ul>
+<li><strong>定义</strong> $f^{′′}(x) &#x3D; 0$ 且 $f^{′′′}(x) \not&#x3D; 0$ 或 $f^{′′}(0)$ 两侧变号</li>
+</ul>
+</li>
+</ul>
+<h4 id="曲线的渐近线"><a href="#曲线的渐近线" class="headerlink" title="曲线的渐近线"></a>曲线的渐近线</h4><ul>
+<li><p><strong>水平渐近线</strong></p>
+<p>若 $\lim\limits_{x\to\infty}f(x)&#x3D;A$ 则 $y &#x3D; A$ 是曲线的<u>水平渐近线</u>（$x\to+\infty$ 或 $x\to-\infty$）</p>
+</li>
+<li><p><strong>垂直渐近线</strong></p>
+<p>若 $\lim\limits_{x\to x_0}f(x)&#x3D;\infty$，那么 $x &#x3D; x_0$ 是曲线的<u>垂直渐近线</u></p>
+</li>
+<li><p><strong>斜渐近线</strong></p>
+<p>若 $\lim\limits_{x\to\infty}\frac{f(x)}{x}&#x3D;a$，$b &#x3D; \lim\limits_{x\to\infty}(f(x)-ax)$，那么 $y&#x3D;ax+b$ 是曲线的<u>斜渐近线</u></p>
+</li>
+</ul>
 <br>
 
 <br>
@@ -447,7 +474,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E8%A7%92%E5%87%BD%E6%95%B0"><span class="nav-number">1.</span> <span class="nav-text">三角函数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%8C%E5%80%8D%E8%A7%92"><span class="nav-number">1.1.</span> <span class="nav-text">二倍角</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8D%8A%E8%A7%92"><span class="nav-number">1.2.</span> <span class="nav-text">半角</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9E%81%E9%99%90"><span class="nav-number">2.</span> <span class="nav-text">极限</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E7%AD%89%E4%BB%B7%E6%97%A0%E7%A9%B7%E5%B0%8F%E4%BB%A3%E6%8D%A2-lim-limits-x-to-0"><span class="nav-number">2.1.</span> <span class="nav-text">常用等价无穷小代换($\lim\limits_{x \to 0}$)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-infty-%E5%9E%8B%E6%9E%81%E9%99%90"><span class="nav-number">2.2.</span> <span class="nav-text">$1^\infty$型极限</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%97%B4%E6%96%AD%E7%82%B9"><span class="nav-number">2.3.</span> <span class="nav-text">间断点</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AF%BC%E6%95%B0"><span class="nav-number">3.</span> <span class="nav-text">导数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E5%88%9D%E7%AD%89%E5%87%BD%E6%95%B0%E7%9A%84%E5%AF%BC%E6%95%B0%E5%85%AC%E5%BC%8F"><span class="nav-number">3.1.</span> <span class="nav-text">基本初等函数的导数公式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E9%AB%98%E9%98%B6%E5%AF%BC"><span class="nav-number">3.2.</span> <span class="nav-text">常用高阶导</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E6%B3%B0%E5%8B%92%E5%85%AC%E5%BC%8F"><span class="nav-number">3.3.</span> <span class="nav-text">常用泰勒公式</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E8%A7%92%E5%87%BD%E6%95%B0"><span class="nav-number">1.</span> <span class="nav-text">三角函数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%8C%E5%80%8D%E8%A7%92"><span class="nav-number">1.1.</span> <span class="nav-text">二倍角</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8D%8A%E8%A7%92"><span class="nav-number">1.2.</span> <span class="nav-text">半角</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9E%81%E9%99%90"><span class="nav-number">2.</span> <span class="nav-text">极限</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E7%AD%89%E4%BB%B7%E6%97%A0%E7%A9%B7%E5%B0%8F%E4%BB%A3%E6%8D%A2-lim-limits-x-to-0"><span class="nav-number">2.1.</span> <span class="nav-text">常用等价无穷小代换($\lim\limits_{x \to 0}$)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-infty-%E5%9E%8B%E6%9E%81%E9%99%90"><span class="nav-number">2.2.</span> <span class="nav-text">$1^\infty$型极限</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%97%B4%E6%96%AD%E7%82%B9"><span class="nav-number">2.3.</span> <span class="nav-text">间断点</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AF%BC%E6%95%B0"><span class="nav-number">3.</span> <span class="nav-text">导数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E5%88%9D%E7%AD%89%E5%87%BD%E6%95%B0%E7%9A%84%E5%AF%BC%E6%95%B0%E5%85%AC%E5%BC%8F"><span class="nav-number">3.1.</span> <span class="nav-text">基本初等函数的导数公式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E9%AB%98%E9%98%B6%E5%AF%BC"><span class="nav-number">3.2.</span> <span class="nav-text">常用高阶导</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E6%B3%B0%E5%8B%92%E5%85%AC%E5%BC%8F"><span class="nav-number">3.3.</span> <span class="nav-text">常用泰勒公式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9B%B2%E7%BA%BF%E7%9A%84%E5%87%B9%E5%87%B8%E6%80%A7"><span class="nav-number">3.4.</span> <span class="nav-text">曲线的凹凸性</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9B%B2%E7%BA%BF%E7%9A%84%E6%B8%90%E8%BF%91%E7%BA%BF"><span class="nav-number">3.4.1.</span> <span class="nav-text">曲线的渐近线</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 

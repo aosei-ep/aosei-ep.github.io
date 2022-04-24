@@ -53,16 +53,16 @@
 <br>
 
 <h2 id="导数"><a href="#导数" class="headerlink" title="导数"></a>导数</h2><h3 id="基本初等函数的导数公式"><a href="#基本初等函数的导数公式" class="headerlink" title="基本初等函数的导数公式"></a>基本初等函数的导数公式</h3><ol>
-<li>$(a^x)^{‘} &#x3D; a^x\ln a$</li>
-<li>$(\log _ax)^{‘} &#x3D; \frac{1}{x\ln a}$</li>
-<li>$(\tan x)^{‘} &#x3D; \sec^2x$</li>
-<li>$(\cot x)^{‘} &#x3D; -\csc^2x$</li>
-<li>$(\sec x)^{‘} &#x3D; \sec x\tan x$</li>
-<li>$(\csc x)^{‘} &#x3D; -\csc x\cot x$</li>
-<li>$(\arcsin x)^{‘} &#x3D; \frac{1}{\sqrt{1 - x^2}}$</li>
-<li>$(\arccos x)^{‘} &#x3D; -\frac{1}{\sqrt{1 - x^2}}$</li>
-<li>$(\arctan x)^{‘} &#x3D; \frac{1}{1 + x^2}$</li>
-<li>$(\text{arccot} x)^{‘} &#x3D; -\frac{1}{1 + x^2}$</li>
+<li>$(a^x)^{′} &#x3D; a^x\ln a$</li>
+<li>$(\log _ax)^{′} &#x3D; \frac{1}{x\ln a}$</li>
+<li>$(\tan x)^{′} &#x3D; \sec^2x$</li>
+<li>$(\cot x)^{′} &#x3D; -\csc^2x$</li>
+<li>$(\sec x)^{′} &#x3D; \sec x\tan x$</li>
+<li>$(\csc x)^{′} &#x3D; -\csc x\cot x$</li>
+<li>$(\arcsin x)^{′} &#x3D; \frac{1}{\sqrt{1 - x^2}}$</li>
+<li>$(\arccos x)^{′} &#x3D; -\frac{1}{\sqrt{1 - x^2}}$</li>
+<li>$(\arctan x)^{′} &#x3D; \frac{1}{1 + x^2}$</li>
+<li>$(\text{arccot} x)^{′} &#x3D; -\frac{1}{1 + x^2}$</li>
 </ol>
 <h3 id="常用高阶导"><a href="#常用高阶导" class="headerlink" title="常用高阶导"></a>常用高阶导</h3><ol>
 <li>$(\sin x)^{(n)} &#x3D; \sin(x + n\cdot\frac{\pi}{2})$</li>
@@ -79,6 +79,33 @@
 </ol>
 <p><strong>存在</strong> $\alpha(x) \text~ \beta(x) \Rightarrow \alpha(x) &#x3D; \beta(x) + o(\beta(x))$</p>
 <p><strong>【例】</strong> $\tan x - x \text~ \frac{1}{3}x^3 \Rightarrow \tan x &#x3D; x + \frac{1}{3}x^3 + o(x^3)$</p>
+<h3 id="曲线的凹凸性"><a href="#曲线的凹凸性" class="headerlink" title="曲线的凹凸性"></a>曲线的凹凸性</h3><ul>
+<li><strong>凹</strong> <ul>
+<li><strong>定义</strong> $f(\frac{x_1 + x_2}{2}) &lt; \frac{f(x_1)+f(x_2)}{2}$</li>
+<li><strong>定理</strong> 若在区间 $I$ 上 $f^{′′}&gt;0$ 则曲线 $y &#x3D; f(x)$ 在 $I$ 上是<b><u>凹</u></b>的</li>
+</ul>
+</li>
+<li><strong>凸</strong> <ul>
+<li><strong>定义</strong> $f(\frac{x_1 + x_2}{2}) &gt; \frac{f(x_1)+f(x_2)}{2}$</li>
+<li><strong>定理</strong> 若在区间 $I$ 上 $f^{′′}&lt;0$ 则曲线 $y &#x3D; f(x)$ 在 $I$ 上是<b><u>凸</u></b>的</li>
+</ul>
+</li>
+<li><strong>拐点</strong>(凹凸发生改变)<ul>
+<li><strong>定义</strong> $f^{′′}(x) &#x3D; 0$ 且 $f^{′′′}(x) \not&#x3D; 0$ 或 $f^{′′}(0)$ 两侧变号</li>
+</ul>
+</li>
+</ul>
+<h4 id="曲线的渐近线"><a href="#曲线的渐近线" class="headerlink" title="曲线的渐近线"></a>曲线的渐近线</h4><ul>
+<li><p><strong>水平渐近线</strong></p>
+<p>若 $\lim\limits_{x\to\infty}f(x)&#x3D;A$ 则 $y &#x3D; A$ 是曲线的<u>水平渐近线</u>（$x\to+\infty$ 或 $x\to-\infty$）</p>
+</li>
+<li><p><strong>垂直渐近线</strong></p>
+<p>若 $\lim\limits_{x\to x_0}f(x)&#x3D;\infty$，那么 $x &#x3D; x_0$ 是曲线的<u>垂直渐近线</u></p>
+</li>
+<li><p><strong>斜渐近线</strong></p>
+<p>若 $\lim\limits_{x\to\infty}\frac{f(x)}{x}&#x3D;a$，$b &#x3D; \lim\limits_{x\to\infty}(f(x)-ax)$，那么 $y&#x3D;ax+b$ 是曲线的<u>斜渐近线</u></p>
+</li>
+</ul>
 <br>
 
 <br>]]></content>
