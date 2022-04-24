@@ -26,8 +26,14 @@
 
 
 
-<h2 id="极限"><a href="#极限" class="headerlink" title="极限"></a>极限</h2><h3 id="常用等价无穷小代换-lim-x-to-0"><a href="#常用等价无穷小代换-lim-x-to-0" class="headerlink" title="常用等价无穷小代换($\lim_{x \to 0}$)"></a>常用等价无穷小代换($\lim_{x \to 0}$)</h3><p><code>x</code> ~ <code>sinx</code> ~ <code>tanx</code> ~ <code>arcsinx</code> ~ <code>arctanx</code> ~ <code>$e^&#123;x&#125; - 1$</code> ~ <code>ln(1 + x)</code></p>
-<p><code>1 - cosx</code> ~ <code>secx - 1</code> ~ <code>$\frac&#123;1&#125;&#123;2&#125;x^2$</code></p>
+<h2 id="极限"><a href="#极限" class="headerlink" title="极限"></a>极限</h2><h3 id="常用等价无穷小代换-lim-x-to-0"><a href="#常用等价无穷小代换-lim-x-to-0" class="headerlink" title="常用等价无穷小代换($\lim_{x \to 0}$)"></a>常用等价无穷小代换($\lim_{x \to 0}$)</h3><p><code>$x$</code> ~ <code>$sinx$</code> ~ <code>$tanx$</code> ~ <code>$arcsinx$</code> ~ <code>$arctanx$</code> ~ <code>$e^&#123;x&#125; - 1$</code> ~ <code>$ln(1 + x)$</code></p>
+<p><code>$a^x - 1$</code> ~ <code>$xlna$</code></p>
+<p><code>$log_a(1 + x)$</code> ~ <code>$\frac&#123;x&#125;&#123;lnx&#125;$</code></p>
+<p><code>1 - cos$x$</code> ~ <code>sec$x$ - 1</code> ~ <code>$\frac&#123;1&#125;&#123;2&#125;x^2$</code></p>
+<p><code>$(1 + Bx)^a - 1$</code> ~ <code>$aBx$</code>	<strong>【拓展】若</strong>$α(x) \to 0$<strong>，</strong> $α(x)β(x) \to 0$<strong>，则</strong><code>$[1 + α(x)]^&#123;β(x)&#125; - 1$</code> ~ <code>$α(x)β(x)$</code></p>
+<p><code>$x$ - sin$x$</code> ~ <code>arcsin$x$ - $x$</code> ~ <code>$\frac&#123;1&#125;&#123;6&#125;x^3$</code></p>
+<p><code>$x$ - ln(1 + $x$)</code> ~ <code>$\frac&#123;1&#125;&#123;2&#125;x^2$</code></p>
+<p><code>tan$x$ - $x$</code> ~ <code>$x$ - arctan$x$</code> ~ <code>$\frac&#123;1&#125;&#123;3&#125;x^3$</code></p>
 <p><br><br></p>
 ]]></content>
       <categories>
