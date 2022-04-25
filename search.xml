@@ -150,7 +150,7 @@
 <li>$\int e^{\alpha a}\sin \mu x\text dx$ 放入二者其一都可</li>
 <li>$\int e^{\alpha x}\cos\beta x\text dx$ 放入二者其一都可</li>
 </ul>
-<p>【例】$$\int\frac{\ln\sin x}{\sin^2x}\text dx &#x3D; \int\ln\sin x\text d\cot x\\&#x3D;-\cot x\ln\sin x+\int\cot^2x\text dx\\&#x3D;-\cot x\ln\sin x+\int(\csc^2x-1)\text dx\\&#x3D;-cot x\ln\sin x-\cot x-x+c$$</p>
+<p>【例】$$\int\frac{\ln\sin x}{\sin^2x}\text dx \\&#x3D; \int\ln\sin x\text d\cot x\\&#x3D;-\cot x\ln\sin x+\int\cot^2x\text dx\\&#x3D;-\cot x\ln\sin x+\int(\csc^2x-1)\text dx\\&#x3D;-cot x\ln\sin x-\cot x-x+C$$</p>
 </li>
 </ol>
 <br>
