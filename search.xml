@@ -35,6 +35,17 @@
 <p><code>$x - ln(1 + x)$</code> ~ <code>$\frac&#123;1&#125;&#123;2&#125;x^2$</code></p>
 <p><code>tan$x$ - $x$</code> ~ <code>$x$ - arctan$x$</code> ~ <code>$\frac&#123;1&#125;&#123;3&#125;x^3$</code></p>
 <h3 id="1-infty-型极限"><a href="#1-infty-型极限" class="headerlink" title="$1^\infty$型极限"></a>$1^\infty$型极限</h3><p><strong>若</strong> $\lim\alpha(x) &#x3D; 0$<strong>，</strong>$\lim\beta(x) &#x3D; \infty$，<strong>且</strong> $\lim\alpha(x)\beta(x) &#x3D; A$<strong>，则</strong> <code>$\lim(1 + \alpha(x))^&#123;\beta(x)&#125; = e^A$</code></p>
+<h3 id="等价代换的条件"><a href="#等价代换的条件" class="headerlink" title="等价代换的条件"></a>等价代换的条件</h3><ul>
+<li><p><strong>乘除关系任何时候都可以代换</strong></p>
+</li>
+<li><p><strong>加减关系在一定条件下可以换</strong></p>
+<p>若 $\alpha\text<del>\alpha_1,\beta\text</del>\beta_1$</p>
+<ol>
+<li>且 $\lim\frac{\alpha_1}{\beta_1}&#x3D;A\not&#x3D;1$，则 $\alpha-\beta&#x3D;\alpha_1-\beta_1$</li>
+<li>且 $\lim\frac{\alpha_1}{\beta_1}&#x3D;A\not&#x3D;-1$，则 $\alpha+\beta&#x3D;\alpha_1+\beta_1$</li>
+</ol>
+</li>
+</ul>
 <h3 id="间断点"><a href="#间断点" class="headerlink" title="间断点"></a>间断点</h3><ol>
 <li><strong>第一类间断点：</strong>左右极限点均存在<ul>
 <li>可去间断点：左极限 &#x3D; 右极限</li>
