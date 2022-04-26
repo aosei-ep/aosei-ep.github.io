@@ -39,7 +39,7 @@
 <li><p><strong>乘除关系任何时候都可以代换</strong></p>
 </li>
 <li><p><strong>加减关系在一定条件下可以换</strong></p>
-<p>若 $\alpha\text<del>\alpha_1,\beta\text</del>\beta_1$</p>
+<p>若 $\alpha\sim\alpha_1,\beta\sim\beta_1$</p>
 <ol>
 <li>且 $\lim\frac{\alpha_1}{\beta_1}&#x3D;A\not&#x3D;1$，则 $\alpha-\beta&#x3D;\alpha_1-\beta_1$</li>
 <li>且 $\lim\frac{\alpha_1}{\beta_1}&#x3D;A\not&#x3D;-1$，则 $\alpha+\beta&#x3D;\alpha_1+\beta_1$</li>
