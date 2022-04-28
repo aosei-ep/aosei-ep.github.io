@@ -30,7 +30,7 @@
 <meta property="og:description" content="高数、线代常用公式和知识点">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-04-22T12:26:41.000Z">
-<meta property="article:modified_time" content="2022-04-26T13:04:34.304Z">
+<meta property="article:modified_time" content="2022-04-28T15:21:34.595Z">
 <meta property="article:author" content="hep">
 <meta property="article:tag" content="高等数学">
 <meta property="article:tag" content="线性代数">
@@ -233,7 +233,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-04-26 21:04:34" itemprop="dateModified" datetime="2022-04-26T21:04:34+08:00">2022-04-26</time>
+                <time title="修改时间：2022-04-28 23:21:34" itemprop="dateModified" datetime="2022-04-28T23:21:34+08:00">2022-04-28</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -251,14 +251,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>4.8k</span>
+              <span>5.2k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>4 分钟</span>
+              <span>5 分钟</span>
             </span>
             <div class="post-description">高数、线代常用公式和知识点</div>
 
@@ -296,7 +296,7 @@
 
 <h2 id="极限"><a href="#极限" class="headerlink" title="极限"></a>极限</h2><h3 id="常用等价无穷小代换-lim-limits-x-to-0"><a href="#常用等价无穷小代换-lim-limits-x-to-0" class="headerlink" title="常用等价无穷小代换($\lim\limits_{x \to 0}$)"></a>常用等价无穷小代换($\lim\limits_{x \to 0}$)</h3><p><code>$x$</code> ~ <code>$sinx$</code> ~ <code>$tanx$</code> ~ <code>$arcsinx$</code> ~ <code>$arctanx$</code> ~ <code>$e^&#123;x&#125; - 1$</code> ~ <code>$ln(1 + x)$</code></p>
 <p><code>$a^x - 1$</code> ~ <code>$xlna$</code></p>
-<p><code>$log_a(1 + x)$</code> ~ <code>$\frac&#123;x&#125;&#123;lnx&#125;$</code></p>
+<p><code>$log_a(1 + x)$</code> ~ <code>$\frac&#123;x&#125;&#123;\ln a&#125;$</code></p>
 <p><code>$1 - cosx$</code> ~ <code>$secx - 1$</code> ~ <code>$\frac&#123;1&#125;&#123;2&#125;x^2$</code></p>
 <p><code>$(1 + Bx)^a - 1$</code> ~ <code>$aBx$</code>	<strong>【拓展】若</strong>$α(x) \to 0$<strong>，</strong> $α(x)β(x) \to 0$<strong>，则</strong><code>$[1 + α(x)]^&#123;β(x)&#125; - 1$</code> ~ <code>$α(x)β(x)$</code></p>
 <p><code>$x - sinx$</code> ~ <code>$arcsinx - x$</code> ~ <code>$\frac&#123;1&#125;&#123;6&#125;x^3$</code></p>
@@ -429,9 +429,21 @@
 <li>$\int e^{\alpha a}\sin \mu x\text dx$ 放入二者其一都可</li>
 <li>$\int e^{\alpha x}\cos\beta x\text dx$ 放入二者其一都可</li>
 </ul>
-<p>【例】$$\int\frac{\ln\sin x}{\sin^2x}\text dx \\&#x3D; \int\ln\sin x\text d\cot x\\&#x3D;-\cot x\ln\sin x+\int\cot^2x\text dx\\&#x3D;-\cot x\ln\sin x+\int(\csc^2x-1)\text dx\\&#x3D;-cot x\ln\sin x-\cot x-x+C$$</p>
+<p>【例】$$\begin{array}\int\frac{\ln\sin x}{\sin^2x}\text dx \\&#x3D; \int\ln\sin x\text d\cot x\\&#x3D;-\cot x\ln\sin x+\int\cot^2x\text dx\\&#x3D;-\cot x\ln\sin x+\int(\csc^2x-1)\text dx\\&#x3D;-cot x\ln\sin x-\cot x-x+C\end{array}$$</p>
 </li>
 </ol>
+<br>
+
+<br>
+
+<h2 id="做题总结"><a href="#做题总结" class="headerlink" title="做题总结"></a>做题总结</h2><h3 id="极限-1"><a href="#极限-1" class="headerlink" title="极限"></a>极限</h3><ul>
+<li><p><strong>【例1】</strong>若 $\lim\limits_{x\to0}\frac{\sin x}{e^x-a}(\cos x-b)&#x3D;5$，则 $a&#x3D;?, b&#x3D;?.$</p>
+<p>解：$\lim\limits_{x\to0}\frac{\sin x}{e^x-a}(\cos x-b)&#x3D;\frac{\sin0}{e^0-a}(\cos0-b)$</p>
+<p>因为 $\sin 0$ 为 0 ，要让极限成立则 $e^x-a$ 也需要为 0，可得 $a &#x3D; 1$</p>
+<p>于是 $\lim\limits_{x\to0}\frac{\sin x}{e^x-1}(\cos x-b) &#x3D; \lim\limits_{x\to0}(\cos x-b) &#x3D; 1-b&#x3D;5$</p>
+<p>最后解得 $\left\lbrace\begin{array}{lcl}a&#x3D;1 \\b&#x3D;-4\end{array}\right.$</p>
+</li>
+</ul>
 <br>
 
 <br>
@@ -532,7 +544,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E8%A7%92%E5%87%BD%E6%95%B0"><span class="nav-number">1.</span> <span class="nav-text">三角函数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%8C%E5%80%8D%E8%A7%92"><span class="nav-number">1.1.</span> <span class="nav-text">二倍角</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8D%8A%E8%A7%92"><span class="nav-number">1.2.</span> <span class="nav-text">半角</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9E%81%E9%99%90"><span class="nav-number">2.</span> <span class="nav-text">极限</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E7%AD%89%E4%BB%B7%E6%97%A0%E7%A9%B7%E5%B0%8F%E4%BB%A3%E6%8D%A2-lim-limits-x-to-0"><span class="nav-number">2.1.</span> <span class="nav-text">常用等价无穷小代换($\lim\limits_{x \to 0}$)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-infty-%E5%9E%8B%E6%9E%81%E9%99%90"><span class="nav-number">2.2.</span> <span class="nav-text">$1^\infty$型极限</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AD%89%E4%BB%B7%E4%BB%A3%E6%8D%A2%E7%9A%84%E6%9D%A1%E4%BB%B6"><span class="nav-number">2.3.</span> <span class="nav-text">等价代换的条件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%97%B4%E6%96%AD%E7%82%B9"><span class="nav-number">2.4.</span> <span class="nav-text">间断点</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AF%BC%E6%95%B0"><span class="nav-number">3.</span> <span class="nav-text">导数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E5%88%9D%E7%AD%89%E5%87%BD%E6%95%B0%E7%9A%84%E5%AF%BC%E6%95%B0%E5%85%AC%E5%BC%8F"><span class="nav-number">3.1.</span> <span class="nav-text">基本初等函数的导数公式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E9%AB%98%E9%98%B6%E5%AF%BC"><span class="nav-number">3.2.</span> <span class="nav-text">常用高阶导</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E6%B3%B0%E5%8B%92%E5%85%AC%E5%BC%8F"><span class="nav-number">3.3.</span> <span class="nav-text">常用泰勒公式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9B%B2%E7%BA%BF%E7%9A%84%E5%87%B9%E5%87%B8%E6%80%A7"><span class="nav-number">3.4.</span> <span class="nav-text">曲线的凹凸性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9B%B2%E7%BA%BF%E7%9A%84%E6%B8%90%E8%BF%91%E7%BA%BF"><span class="nav-number">3.5.</span> <span class="nav-text">曲线的渐近线</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%8D%E5%AE%9A%E7%A7%AF%E5%88%86"><span class="nav-number">4.</span> <span class="nav-text">不定积分</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E4%B8%8D%E5%AE%9A%E7%A7%AF%E5%88%86%E5%85%AC%E5%BC%8F"><span class="nav-number">4.1.</span> <span class="nav-text">常用不定积分公式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E7%A7%AF%E5%88%86%E6%B3%95"><span class="nav-number">4.2.</span> <span class="nav-text">常用积分法</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E8%A7%92%E5%87%BD%E6%95%B0"><span class="nav-number">1.</span> <span class="nav-text">三角函数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%8C%E5%80%8D%E8%A7%92"><span class="nav-number">1.1.</span> <span class="nav-text">二倍角</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8D%8A%E8%A7%92"><span class="nav-number">1.2.</span> <span class="nav-text">半角</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9E%81%E9%99%90"><span class="nav-number">2.</span> <span class="nav-text">极限</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E7%AD%89%E4%BB%B7%E6%97%A0%E7%A9%B7%E5%B0%8F%E4%BB%A3%E6%8D%A2-lim-limits-x-to-0"><span class="nav-number">2.1.</span> <span class="nav-text">常用等价无穷小代换($\lim\limits_{x \to 0}$)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-infty-%E5%9E%8B%E6%9E%81%E9%99%90"><span class="nav-number">2.2.</span> <span class="nav-text">$1^\infty$型极限</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AD%89%E4%BB%B7%E4%BB%A3%E6%8D%A2%E7%9A%84%E6%9D%A1%E4%BB%B6"><span class="nav-number">2.3.</span> <span class="nav-text">等价代换的条件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%97%B4%E6%96%AD%E7%82%B9"><span class="nav-number">2.4.</span> <span class="nav-text">间断点</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AF%BC%E6%95%B0"><span class="nav-number">3.</span> <span class="nav-text">导数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E5%88%9D%E7%AD%89%E5%87%BD%E6%95%B0%E7%9A%84%E5%AF%BC%E6%95%B0%E5%85%AC%E5%BC%8F"><span class="nav-number">3.1.</span> <span class="nav-text">基本初等函数的导数公式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E9%AB%98%E9%98%B6%E5%AF%BC"><span class="nav-number">3.2.</span> <span class="nav-text">常用高阶导</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E6%B3%B0%E5%8B%92%E5%85%AC%E5%BC%8F"><span class="nav-number">3.3.</span> <span class="nav-text">常用泰勒公式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9B%B2%E7%BA%BF%E7%9A%84%E5%87%B9%E5%87%B8%E6%80%A7"><span class="nav-number">3.4.</span> <span class="nav-text">曲线的凹凸性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9B%B2%E7%BA%BF%E7%9A%84%E6%B8%90%E8%BF%91%E7%BA%BF"><span class="nav-number">3.5.</span> <span class="nav-text">曲线的渐近线</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%8D%E5%AE%9A%E7%A7%AF%E5%88%86"><span class="nav-number">4.</span> <span class="nav-text">不定积分</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E4%B8%8D%E5%AE%9A%E7%A7%AF%E5%88%86%E5%85%AC%E5%BC%8F"><span class="nav-number">4.1.</span> <span class="nav-text">常用不定积分公式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E7%A7%AF%E5%88%86%E6%B3%95"><span class="nav-number">4.2.</span> <span class="nav-text">常用积分法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%81%9A%E9%A2%98%E6%80%BB%E7%BB%93"><span class="nav-number">5.</span> <span class="nav-text">做题总结</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9E%81%E9%99%90-1"><span class="nav-number">5.1.</span> <span class="nav-text">极限</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
