@@ -191,7 +191,30 @@
 </ul>
 <hr>
 
+<ul>
+<li><p><strong>【题3】</strong></p>
+<p>$\lim\limits_{x\to1}\frac{\sin^2x}{(x-1)\ln{x}}=\lim\limits_{x\to1}\frac{\sin^2[\pi+\pi(x-1)]}{(x-1)^2}=\lim\limits_{x\to1}\frac{\sin^2[\pi(x-1)]}{(x-1)^2}=\pi^2$</p>
+<p><u>运用到了函数的周期性</u></p>
+</li>
+</ul>
+<p><hr></p>
+<ul>
+<li><p><strong>【题4】</strong></p>
+<p>由于 $(x+1)^{10}=C^0_{10}x^{10}+C^1_{10}x^{9}+\cdots=x^{10}+10x^9+\cdots$</p>
+<p>$(x-1)^{10}=C^0_{10}x^{10}-C^1_{10}x^{9}+\cdots=x^{10}-10x^9+\cdots$</p>
+<p>$\lim\limits_{x\to1}\frac{x^9}{(x+1)^{10}-(x-1)^{10}}=\frac{x^9}{20x^9+\cdots}=\frac{1}{20}$</p>
+</li>
+</ul>
+<hr>
 
+<ul>
+<li><p><strong>【题5】</strong> $\lim\limits_{x\to+\infty}x^2(\arctan{\frac{1}{2x-1}}-\arctan{\frac{1}{2x+1}})$</p>
+<p>令 $f(t)=\arctan t,f^{′}(t)=\frac{1}{1+t^2}$，由<u>拉格朗日中值定理</u>得</p>
+<p>$\arctan\frac{1}{2x-1}-\arctan\frac{1}{2x+1}=f^{′}(\xi)\cdot(\frac{1}{2x-1}-\frac{1}{2x+1})=\frac{1}{1+\xi^2}\cdot\frac{2}{4x^2-1}$</p>
+<p>则 $原式=\lim\limits_{x\to+\infty}\frac{1}{1+\xi^2}\cdot\frac{2x^2}{4x^2-1}=\frac{1}{2}$</p>
+</li>
+</ul>
+<hr>
 
 
 
