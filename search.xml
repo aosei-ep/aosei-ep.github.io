@@ -197,7 +197,8 @@
 <p><u>运用到了函数的周期性</u></p>
 </li>
 </ul>
-<p><hr></p>
+<hr>
+
 <ul>
 <li><p><strong>【题4】</strong></p>
 <p>由于 $(x+1)^{10}=C^0_{10}x^{10}+C^1_{10}x^{9}+\cdots=x^{10}+10x^9+\cdots$</p>
@@ -216,8 +217,26 @@
 </ul>
 <hr>
 
+<ul>
+<li><strong>【题6】</strong> <code>注: $\ln&#123;x&#125;=-\ln&#123;\frac&#123;1&#125;&#123;x&#125;&#125;$</code><ol>
+<li>$\lim\limits_{x\to0^+}(\frac{1}{x})^{\tan{2x}}=e^{\lim\limits_{x\to0^+}\tan{2x}\cdot\ln{\frac{1}{x}}}=e^{-2\lim\limits_{x\to0^+}\frac{\tan{2x}}{2x}\cdot\frac{\ln{x}}{\frac{1}{x}}}=e^{-2\lim\limits_{x\to0^+}\frac{\frac{1}{x}}{-\frac{1}{x^2}}}=e^0=1$</li>
+<li>$\lim\limits_{x\to0^+}(\frac{1}{x})^{\tan{2x}}=e^{\lim\limits_{x\to0^+}\sin{2x}\cdot\ln{\frac{1}{x}}}=e^{2\lim\limits_{x\to0^+}\frac{\sin{2x}}{2x}\cdot\frac{\ln{x}}{\frac{1}{x}}}=e^{2\lim\limits_{x\to0^+}\frac{\frac{1}{x}}{-\frac{1}{x^2}}}=e^0=1$</li>
+</ol>
+</li>
+</ul>
+<hr>
 
-
+<ul>
+<li><p>【题7】</p>
+<ol>
+<li><p>$\lim\limits_{x\to0}\frac{\tan(\tan{x})-x}{x(1-\sqrt{\cos x})}=\lim\limits_{x\to0}\frac{[\tan{(\tan{x})}-x]\cdot(1+\cos{x})}{x\cdot(1-\cos{x})}=4\lim\limits_{x\to0}(\frac{\tan{(\tan{x})}-\tan{x}}{x^3}+\frac{\tan{x}-x}{x^3})=\\\\4\lim\limits_{x\to0}(\frac{\frac{1}{3}(\tan{x})^3}{x^3}+\frac{\frac{1}{3}x^3}{x^3})=\frac{8}{3}$</p>
+<div style="height: 10px"></div>
+</li>
+<li><p>$\lim\limits_{x\to0}\frac{1-\cos{x}\cdot\cos{2x}\cdot\cos{3x}}{x^2}=\lim\limits_{x\to0}(\frac{1-\cos x}{x^2}+\cos{x}\cdot\frac{1-\cos(2x)}{x^2}+\cos{x}\cdot\cos{2x}\cdot\frac{1-\cos{3x}}{x^2})\\\\=\frac{1}{2}+2+\frac{9}{2}=7$</p>
+</li>
+</ol>
+</li>
+</ul>
 <p><br></p>
 <p><br></p>
 ]]></content>
@@ -448,7 +467,7 @@
 <p>与顺序栈仅在<u>存储方式</u>上不一样，但是一样为先进后出（后进先出）的特点(First In Last Out, FILO)</p>
 </li>
 <li><p><strong>链式队列</strong></p>
-<p>链式队列就是一个只能在<code>front</code>端插入和<code>rear</code>端删除的单链表，相对平常的单链表仅需创建一个可以存储<code>front</code>和<code>rear</code>地址的结点</p>
+<p>链式队列就是一个只能在<code>front</code>端插入和<code>rear</code>端删除的单链表，相对平常的单链表需要多创建一个可以存储<code>front</code>和<code>rear</code>地址的结点</p>
 <p>链式队列相对顺序队列，不会出现<u>队列空间占满</u>的情况出现</p>
 <img src="/2022/04/10/DataStructure/link_queue.png" class="" title="链式队列">
 <p><strong>链式队列的<code>C语言</code>实现</strong></p>

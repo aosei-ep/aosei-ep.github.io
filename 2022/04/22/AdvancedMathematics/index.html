@@ -30,7 +30,7 @@
 <meta property="og:description" content="高数、线代常用公式和知识点">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-04-22T12:26:41.000Z">
-<meta property="article:modified_time" content="2022-04-30T08:34:44.529Z">
+<meta property="article:modified_time" content="2022-05-02T15:19:58.539Z">
 <meta property="article:author" content="hep">
 <meta property="article:tag" content="高等数学">
 <meta property="article:tag" content="线性代数">
@@ -233,7 +233,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-04-30 16:34:44" itemprop="dateModified" datetime="2022-04-30T16:34:44+08:00">2022-04-30</time>
+                <time title="修改时间：2022-05-02 23:19:58" itemprop="dateModified" datetime="2022-05-02T23:19:58+08:00">2022-05-02</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -465,7 +465,8 @@
 <p><u>运用到了函数的周期性</u></p>
 </li>
 </ul>
-<p><hr></p>
+<hr>
+
 <ul>
 <li><p><strong>【题4】</strong></p>
 <p>由于 $(x+1)^{10}=C^0_{10}x^{10}+C^1_{10}x^{9}+\cdots=x^{10}+10x^9+\cdots$</p>
@@ -484,8 +485,26 @@
 </ul>
 <hr>
 
+<ul>
+<li><strong>【题6】</strong> <code>注: $\ln&#123;x&#125;=-\ln&#123;\frac&#123;1&#125;&#123;x&#125;&#125;$</code><ol>
+<li>$\lim\limits_{x\to0^+}(\frac{1}{x})^{\tan{2x}}=e^{\lim\limits_{x\to0^+}\tan{2x}\cdot\ln{\frac{1}{x}}}=e^{-2\lim\limits_{x\to0^+}\frac{\tan{2x}}{2x}\cdot\frac{\ln{x}}{\frac{1}{x}}}=e^{-2\lim\limits_{x\to0^+}\frac{\frac{1}{x}}{-\frac{1}{x^2}}}=e^0=1$</li>
+<li>$\lim\limits_{x\to0^+}(\frac{1}{x})^{\tan{2x}}=e^{\lim\limits_{x\to0^+}\sin{2x}\cdot\ln{\frac{1}{x}}}=e^{2\lim\limits_{x\to0^+}\frac{\sin{2x}}{2x}\cdot\frac{\ln{x}}{\frac{1}{x}}}=e^{2\lim\limits_{x\to0^+}\frac{\frac{1}{x}}{-\frac{1}{x^2}}}=e^0=1$</li>
+</ol>
+</li>
+</ul>
+<hr>
 
-
+<ul>
+<li><p>【题7】</p>
+<ol>
+<li><p>$\lim\limits_{x\to0}\frac{\tan(\tan{x})-x}{x(1-\sqrt{\cos x})}=\lim\limits_{x\to0}\frac{[\tan{(\tan{x})}-x]\cdot(1+\cos{x})}{x\cdot(1-\cos{x})}=4\lim\limits_{x\to0}(\frac{\tan{(\tan{x})}-\tan{x}}{x^3}+\frac{\tan{x}-x}{x^3})=\\\\4\lim\limits_{x\to0}(\frac{\frac{1}{3}(\tan{x})^3}{x^3}+\frac{\frac{1}{3}x^3}{x^3})=\frac{8}{3}$</p>
+<div style="height: 10px"></div>
+</li>
+<li><p>$\lim\limits_{x\to0}\frac{1-\cos{x}\cdot\cos{2x}\cdot\cos{3x}}{x^2}=\lim\limits_{x\to0}(\frac{1-\cos x}{x^2}+\cos{x}\cdot\frac{1-\cos(2x)}{x^2}+\cos{x}\cdot\cos{2x}\cdot\frac{1-\cos{3x}}{x^2})\\\\=\frac{1}{2}+2+\frac{9}{2}=7$</p>
+</li>
+</ol>
+</li>
+</ul>
 <p><br></p>
 <p><br></p>
 
