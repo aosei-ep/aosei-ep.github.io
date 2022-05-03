@@ -227,7 +227,7 @@
 <hr>
 
 <ul>
-<li><p>【题7】</p>
+<li><p><strong>【题7】</strong></p>
 <ol>
 <li><p>$\lim\limits_{x\to0}\frac{\tan(\tan{x})-x}{x(1-\sqrt{\cos x})}=\lim\limits_{x\to0}\frac{[\tan{(\tan{x})}-x]\cdot(1+\cos{x})}{x\cdot(1-\cos{x})}=4\lim\limits_{x\to0}(\frac{\tan{(\tan{x})}-\tan{x}}{x^3}+\frac{\tan{x}-x}{x^3})=\\\\4\lim\limits_{x\to0}(\frac{\frac{1}{3}(\tan{x})^3}{x^3}+\frac{\frac{1}{3}x^3}{x^3})=\frac{8}{3}$</p>
 <div style="height: 10px"></div>
@@ -237,7 +237,17 @@
 </ol>
 </li>
 </ul>
-<p><br></p>
+<hr>
+
+<ul>
+<li><p><strong>【题8】</strong>    <code>注: $1^2+2^2+\cdots+n^2=\frac&#123;n(n+1)(2n+1)&#125;&#123;6&#125;$</code></p>
+<p>$\lim\limits_{n\to\infty}\sum\limits_{i=1}^{n}\frac{i^2}{n^3+n^2+n+i}$</p>
+<p>利用<u>夹逼定理</u>有    $\lim\limits_{n\to\infty}\frac{1^2+2^2+\cdots+n^2}{n^3+n^2+n+n}&lt;\lim\limits_{n\to\infty}\sum\limits_{i=1}^{n}\frac{i^2}{n^3+n^2+n+i}&lt;\lim\limits_{n\to\infty}\frac{1^2+2^2+\cdots+n^2}{n^3+n^2+n+n}$</p>
+<p>由于    $1^2+2^2+\cdots+n^2=\frac{n(n+1)(2n+1)}{6}$</p>
+<p>可得    $\lim\limits_{n\to\infty}\frac{1^2+2^2+\cdots+n^2}{n^3+n^2+n+n}=\lim\limits_{n\to\infty}\frac{1^2+2^2+\cdots+n^2}{n^3+n^2+n+1}=\frac{1}{3}$</p>
+<p>所以    $\lim\limits_{n\to\infty}\sum\limits_{i=1}^{n}\frac{i^2}{n^3+n^2+n+i}=\frac{1}{3}$</p>
+</li>
+</ul>
 <p><br></p>
 ]]></content>
       <categories>
