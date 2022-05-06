@@ -158,7 +158,7 @@
 <p><br></p>
 <p><br></p>
 <h2 id="做题总结"><a href="#做题总结" class="headerlink" title="做题总结"></a>做题总结</h2><h3 id="极限-1"><a href="#极限-1" class="headerlink" title="极限"></a>极限</h3><ul>
-<li><p><strong>【题1】</strong>若 $\lim\limits_{x\to0}\frac{x-\sin ax}{\int^{x}_0\frac{t^2}{\sqrt{b+t^4}}\mathrm{d}t}=2$，则 $a=?,b=?.$</p>
+<li><p><strong>【题1】</strong> <b>若 $\lim\limits_{x\to0}\frac{x-\sin ax}{\int^{x}_0\frac{t^2}{\sqrt{b+t^4}}\mathrm{d}t}=2$，则 $a=?,b=?.$ </b></p>
 <p>解：令 $f(t)=t^2,g(t)=\frac{1}{\sqrt{b+t^4}}$</p>
 <p>则 $\int^{x}_0\frac{t^2}{\sqrt{b+t^4}}\mathrm{d}x=\int^{x}_0f(t)g(t)\mathrm{d}x$</p>
 <p>且 $g(x)$ 在 $[0,x]$ 上单调减，$g(x)\ge0$</p>
@@ -182,7 +182,7 @@
 <hr>
 
 <ul>
-<li><p><strong>【题2】</strong>若 $\lim\limits_{x\to0}\frac{\sin x}{e^x-a}(\cos x-b)=5$，则 $a=?, b=?.$</p>
+<li><p><strong>【题2】</strong> <b>若 $\lim\limits_{x\to0}\frac{\sin x}{e^x-a}(\cos x-b)=5$，则 $a=?, b=?.$ </b></p>
 <p>解：$\lim\limits_{x\to0}\frac{\sin x}{e^x-a}(\cos x-b)=\frac{\sin0}{e^0-a}(\cos0-b)$</p>
 <p>因为 $\sin 0$ 为 0 ，要让极限成立则 $e^x-a$ 也需要为 0，可得 $a = 1$</p>
 <p>于是 $\lim\limits_{x\to0}\frac{\sin x}{e^x-1}(\cos x-b) = \lim\limits_{x\to0}(\cos x-b) = 1-b=5$</p>
@@ -209,7 +209,7 @@
 <hr>
 
 <ul>
-<li><p><strong>【题5】</strong> $\lim\limits_{x\to+\infty}x^2(\arctan{\frac{1}{2x-1}}-\arctan{\frac{1}{2x+1}})$</p>
+<li><p><strong>【题5】</strong> <b>$\lim\limits_{x\to+\infty}x^2(\arctan{\frac{1}{2x-1}}-\arctan{\frac{1}{2x+1}})$</b></p>
 <p>令 $f(t)=\arctan t,f^{′}(t)=\frac{1}{1+t^2}$，由<u>拉格朗日中值定理</u>得</p>
 <p>$\arctan\frac{1}{2x-1}-\arctan\frac{1}{2x+1}=f^{′}(\xi)\cdot(\frac{1}{2x-1}-\frac{1}{2x+1})=\frac{1}{1+\xi^2}\cdot\frac{2}{4x^2-1}$</p>
 <p>则 $原式=\lim\limits_{x\to+\infty}\frac{1}{1+\xi^2}\cdot\frac{2x^2}{4x^2-1}=\frac{1}{2}$</p>
@@ -262,6 +262,19 @@
 </ol>
 </li>
 </ul>
+<p><br></p>
+<h3 id="导数-1"><a href="#导数-1" class="headerlink" title="导数"></a>导数</h3><ul>
+<li><p><strong>【题1】</strong> <b>设 $y=f(x)$ 连续，且 $f(x)=2x+1+o(x-2)$，则$\mathrm{d}x\mid_{x=2}=?$ </b></p>
+<p>解：因为 $f(x)$ 连续，所以有 $f(x)=2x+1+o(x-2)$ 得 $f(2)=5$</p>
+<p>由 $\Delta y=f(x)-f(2)=2(x-2)+o(x-2)$ 得 $y=f(x)$ 在 $x=2$ 处可微</p>
+<p>故 $\mathrm{d}y|_{x=2}=2\mathrm{d}x$</p>
+</li>
+</ul>
+<hr>
+
+
+
+<p><br></p>
 <p><br></p>
 ]]></content>
       <categories>
