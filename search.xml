@@ -166,7 +166,7 @@
 <p>即 $\int^{x}_0\frac{t^2}{\sqrt{b+t^4}}\mathrm{d}t=\frac{1}{\sqrt{b}}\int^{\xi}_0t^2\mathrm{d}t=\frac{x^3}{3\sqrt{b}}$</p>
 <p>由于 $\lim\limits_{x\to0}\frac{x^3}{3\sqrt{b}}=0$，则 $\lim\limits_{x\to0}(x-\sin ax)=0\Rightarrow a=1$</p>
 <p>所以 $\lim\limits_{x\to0}\frac{x-\sin x}{\int^{x}_0\frac{t^2}{\sqrt{b+t^4}}\mathrm{d}t}=\sqrt{b}\lim\limits_{x\to0}\frac{1-\cos{x}}{x^2}=\frac{\sqrt{b}}{2}=2$</p>
-<p>解得$\left\lbrace\begin{array}{lcl}a=1 \\\\b=16\end{array}\right.$</p>
+<p>解得$\left\lbrace\begin{array}{lcl}a=1\\b=16\end{array}\right.$</p>
 <p><br></p>
 <p><b><u>【注】积分第二中值定理</u></b>，设函数 $f$ 在 $[a,b]$ 上可积</p>
 <ul>
@@ -186,7 +186,7 @@
 <p>解：$\lim\limits_{x\to0}\frac{\sin x}{e^x-a}(\cos x-b)=\frac{\sin0}{e^0-a}(\cos0-b)$</p>
 <p>因为 $\sin 0$ 为 0 ，要让极限成立则 $e^x-a$ 也需要为 0，可得 $a = 1$</p>
 <p>于是 $\lim\limits_{x\to0}\frac{\sin x}{e^x-1}(\cos x-b) = \lim\limits_{x\to0}(\cos x-b) = 1-b=5$</p>
-<p>最后解得 $\left\lbrace\begin{array}{lcl}a=1 \\\\b=-4\end{array}\right.$</p>
+<p>最后解得 $\left\lbrace\begin{array}{lcl}a=1\\b=-4\end{array}\right.$</p>
 </li>
 </ul>
 <hr>
@@ -270,11 +270,38 @@
 <p>故 $\mathrm{d}y|_{x=2}=2\mathrm{d}x$</p>
 </li>
 </ul>
+<p><hr></p>
+<ul>
+<li><p><strong>【题2】</strong> 设函数 $y=y(x)$ 由 $\left\{\begin{array}{lcl}x=\ln(1+t)\\e^{yt}=y+2t+1\end{array}\right.$ 确定，则 $\frac{\mathrm{d}y}{\mathrm{d}x}=?.$</p>
+<p><strong>解：</strong>由题知 $\frac{\mathrm{d}x}{\mathrm{d}t}=\frac{1}{1+t}$</p>
+<p>$e^{yt}=y+2t+1$ 两边对 $t$ 求导得 $e^{yt}\cdot(y+t\frac{\mathrm{d}y}{\mathrm{d}t})=\frac{\mathrm{d}y}{\mathrm{d}t}+2$，解得 $\frac{\mathrm{d}y}{\mathrm{d}t}=\frac{2-ye^{yt}}{te^{yt}-1}$</p>
+<p>故 $\frac{\mathrm{d}y}{\mathrm{d}x}=\frac{\frac{\mathrm{d}y}{\mathrm{d}t}}{\frac{\mathrm{d}x}{\mathrm{d}t}}=\frac{(t+1)(2-ye^{yt})}{te^{yt}-1}$</p>
+</li>
+</ul>
 <hr>
 
+<ul>
+<li><p><strong>【题3】</strong> 设 $f(x)$ 连续，且对任意的 $x,y\in(-\infty,+\infty)$ 有 $f(x+y)=f(x)+f(y)+2xy$，$f^{′}(0)=1$，求 $f(x)$.</p>
+<p><strong>解：</strong>当 $x=0,y=0$ 时，$f(0)=2f(0)$，于是 $f(0)=0$</p>
+<p>对任意的 $x\in(-\infty,+\infty)$ 有</p>
+<p>$f^{′}(x)=\lim\limits_{h\to0}\frac{f(x+h)-f(x)}{h}=\lim\limits_{h\to0}\frac{f(x)+f(h)+2xh-f(x)}{h}=\lim\limits_{h\to0}\frac{f(h)-f(0)}{h}-2x=2x+1$</p>
+<p>则 $f(x)=x^2+x+C$，因为 $f(0)=0$，所以 $C=0$，故 $f(x)=x+x^2$</p>
+</li>
+</ul>
+<hr>
 
-
+<ul>
+<li><p><strong>【题4】</strong> 设 $f(x)$ 在 $(-\infty, +\infty)$ 上连续，$f^{′}(0)=1$，且对任意的 $x,y\in(-\infty,+\infty)$ 有 $f(x+y)=f(x)f(y)$，求 $f(x)$.</p>
+<p><strong>解：</strong> $f^{′}(x)=\lim\limits_{h\to0}\frac{f(x+h)-f(x)}{h}=\lim\limits_{h\to0}\frac{f(x)f(h)-f(x)}{h}=f(x)\lim\limits_{h\to0}\frac{f(h)-1}{h}$</p>
+<p>由 $f(0)=f^{2}(0)$ 得 $f(0)=0$ 或 $f(0)=1$</p>
+<p>若 $f(0)=0$，则对任意的 $x\in(-\infty,+\infty)$，有 $f(x)=f(x)f(0)=0$</p>
+<p>则 $f^{′}(x)\equiv0$，这与 $f^{′}(0)=1$ 矛盾，从而 $f(0)=1$</p>
+<p>于是 $f^{′}(x)=f(x)\lim\limits_{h\to0}\frac{f(h)-1}{h}=f(x)\lim\limits_{h\to0}\frac{f(h)-f(0)}{h}=f(x)$</p>
+<p>解得 $f(x)=Ce^x$，由 $f(0)=1$ 得 $C=1$，故 $f(x)=e^x$</p>
+</li>
+</ul>
 <p><br></p>
+<h3 id="中值定理与一元函数微分学"><a href="#中值定理与一元函数微分学" class="headerlink" title="中值定理与一元函数微分学"></a>中值定理与一元函数微分学</h3><p><br></p>
 <p><br></p>
 ]]></content>
       <categories>
