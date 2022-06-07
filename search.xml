@@ -615,6 +615,23 @@
       </tags>
   </entry>
   <entry>
+    <title>Python相对路径问题</title>
+    <url>/2022/06/07/PythonPathProblem/</url>
+    <content><![CDATA[<p>昨天在运行python代码的时候遇到了相对路径出错问题，之前也是遇到过这个问题，但是一直没有认真看懂。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">PS C:\Code\Python&gt; python -u .\架构文件类型转换\main.py</span><br><span class="line">./data/a.output - 转换出错</span><br><span class="line">出错原因为: [Errno 2] No such file or directory: <span class="string">&#x27;./data/a.output&#x27;</span></span><br><span class="line"></span><br><span class="line">./data/b.output - 转换出错</span><br><span class="line">出错原因为: [Errno 2] No such file or directory: <span class="string">&#x27;./data/b.output&#x27;</span></span><br><span class="line"></span><br><span class="line">./data/c.output - 转换出错</span><br><span class="line">出错原因为: [Errno 2] No such file or directory: <span class="string">&#x27;./data/c.output&#x27;</span></span><br><span class="line"></span><br><span class="line">./data/d.output - 转换出错</span><br><span class="line">出错原因为: [Errno 2] No such file or directory: <span class="string">&#x27;./data/d.output&#x27;</span></span><br></pre></td></tr></table></figure>
+<img src="/2022/06/07/PythonPathProblem/1.png" class="" title="python相对路径问题">
+<p>明明 <strong><em>相对路径</em></strong> 输入是正确的，但是运行代码却提示没有找到文件或目录</p>
+<p>一查才发现，所启动python的文件夹，才是入口的路径，而不是被调用的文件所在的路径！！！</p>
+<p>然后将当前文件目录<code>cd</code>到<code>main.py</code>目录下就可以正常运行了</p>
+<img src="/2022/06/07/PythonPathProblem/2.png" class="" title="python相对路径问题">]]></content>
+      <categories>
+        <category>遇到问题</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>动态规划</title>
     <url>/2022/04/04/DynamicProgramming/</url>
     <content><![CDATA[<h4 id="什么是动态规划"><a href="#什么是动态规划" class="headerlink" title="什么是动态规划"></a><em><a href="https://www.zhihu.com/question/23995189">什么是动态规划</a></em></h4><p>动态规划算法通常用于求解具有某种最优性质的问题。在这类问题中，可能会有许多可行解。每一个解都对应于一个值，我们希望找到具有最优值的解。</p>
