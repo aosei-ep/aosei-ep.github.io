@@ -630,6 +630,303 @@
       </tags>
   </entry>
   <entry>
+    <title>Visualization</title>
+    <url>/2022/06/15/Visualization/</url>
+    <content><![CDATA[<h3 id="数据可视化分类"><a href="#数据可视化分类" class="headerlink" title="数据可视化分类"></a><em>数据可视化分类</em></h3><ul>
+<li>科学可视化<ul>
+<li>标量场可视化</li>
+<li>向量场可视化</li>
+<li>张量场可视化</li>
+</ul>
+</li>
+<li>信息可视化</li>
+<li>可视分析学</li>
+</ul>
+<h3 id="数据可视化与其他方向的关系"><a href="#数据可视化与其他方向的关系" class="headerlink" title="数据可视化与其他方向的关系"></a>数据可视化与其他方向的关系</h3><ul>
+<li>图形学与人机交互</li>
+<li>数据库与数据仓库</li>
+<li>数据分析与数据挖掘</li>
+<li>面向领域的可视化方法和技术<ul>
+<li>生命科学可视化</li>
+<li>地理信息可视化</li>
+<li>商业智能可视化</li>
+<li>面向广义数据的视觉设计</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="格式塔理论"><a href="#格式塔理论" class="headerlink" title="格式塔理论"></a><em>格式塔理论</em></h3><ul>
+<li>贴近原则</li>
+<li>相似原则</li>
+<li>连续原则</li>
+<li>闭合原则</li>
+<li>共势原则</li>
+<li>好图原则</li>
+<li>对称性原则</li>
+<li>经验原则</li>
+</ul>
+<h3 id="视觉通道类型"><a href="#视觉通道类型" class="headerlink" title="视觉通道类型"></a>视觉通道类型</h3><ul>
+<li>空间</li>
+<li>标记</li>
+<li>位置</li>
+<li>尺寸</li>
+<li>颜色</li>
+<li>亮度</li>
+<li>饱和度</li>
+<li>色调</li>
+<li>配色方案</li>
+<li>透明度</li>
+<li>方向</li>
+<li>形状</li>
+<li>纹理</li>
+<li>动画</li>
+</ul>
+<h3 id="视觉通道的表现力评判标准"><a href="#视觉通道的表现力评判标准" class="headerlink" title="视觉通道的表现力评判标准"></a><em>视觉通道的表现力评判标准</em></h3><ul>
+<li>精确性</li>
+<li>可辨性</li>
+<li>可分离性</li>
+<li>视觉突出</li>
+</ul>
+<hr>
+<h3 id="数据属性"><a href="#数据属性" class="headerlink" title="数据属性"></a>数据属性</h3><ul>
+<li>类别型 —— 商品类别(多元)；客户性别(二元)</li>
+<li>序数型 —— 销售时间(时间先后)</li>
+<li>数值型 —— 商品单价</li>
+</ul>
+<h3 id="数据相似性度量"><a href="#数据相似性度量" class="headerlink" title="数据相似性度量"></a><em>数据相似性度量</em></h3><ul>
+<li>类别型属性</li>
+<li>比值型数值属性</li>
+<li>序数型属性</li>
+<li>区间型数值属性</li>
+</ul>
+<h3 id="数据不确定性"><a href="#数据不确定性" class="headerlink" title="数据不确定性"></a><em>数据不确定性</em></h3><ul>
+<li>数据本身存在误差</li>
+<li>数据集合从低精度转换到高精度的过程中引入的不确定性</li>
+<li>满足特殊应用需求（保护隐私等）</li>
+<li>缺失值处理</li>
+<li>数据集成</li>
+</ul>
+<h3 id="数据存储"><a href="#数据存储" class="headerlink" title="数据存储"></a>数据存储</h3><ul>
+<li>文件存储</li>
+<li>数据库</li>
+<li>数据仓库</li>
+<li>数据存储与可视化</li>
+</ul>
+<h3 id="数据分析"><a href="#数据分析" class="headerlink" title="数据分析"></a>数据分析</h3><ul>
+<li>统计分析法</li>
+<li>探索性数据分析</li>
+<li>数据挖掘<ul>
+<li>分类与预测</li>
+<li>聚类分析</li>
+<li>关联分析</li>
+<li>异常分析</li>
+</ul>
+</li>
+<li>可是数据挖掘和可视分析</li>
+</ul>
+<hr>
+<h3 id="数据可视化处理流程"><a href="#数据可视化处理流程" class="headerlink" title="数据可视化处理流程"></a><em>数据可视化处理流程</em></h3><img src="/2022/06/15/Visualization/Vis_Pro.png" class="" title="可视化流程">
+<ol>
+<li>数据采集</li>
+<li>数据处理和变换</li>
+<li>可视化映射</li>
+<li>用户感知</li>
+</ol>
+<h3 id="数据处理"><a href="#数据处理" class="headerlink" title="数据处理"></a>数据处理</h3><ul>
+<li>数据滤波</li>
+<li>数据降维</li>
+<li>数据采样</li>
+<li>数据聚类和剖分</li>
+</ul>
+<hr>
+<p><strong><em>时空数据可视化</em></strong></p>
+<h3 id="二维标量数据可视化"><a href="#二维标量数据可视化" class="headerlink" title="二维标量数据可视化"></a><em>二维标量数据可视化</em></h3><ul>
+<li>颜色映射法</li>
+<li>等值线提取法</li>
+<li>高度映射法</li>
+<li>标记法</li>
+</ul>
+<h3 id="三维标量数据可视化"><a href="#三维标量数据可视化" class="headerlink" title="三维标量数据可视化"></a><em>三维标量数据可视化</em></h3><ul>
+<li>等值面绘制</li>
+<li>直接体绘制<ul>
+<li>图像空间方法</li>
+<li>数据空间方法</li>
+<li>传输函数设计</li>
+</ul>
+</li>
+</ul>
+<h3 id="多变量空间数据可视化"><a href="#多变量空间数据可视化" class="headerlink" title="多变量空间数据可视化"></a>多变量空间数据可视化</h3><ul>
+<li>常规多变量数据可视化</li>
+<li>矢量场数据可视化</li>
+<li>张量场数据可视化</li>
+</ul>
+<h3 id="时间序列数据可视化"><a href="#时间序列数据可视化" class="headerlink" title="时间序列数据可视化"></a>时间序列数据可视化</h3><ul>
+<li>周期时间可视化</li>
+<li>日历可视化</li>
+<li>时间线可视化</li>
+<li>动画显示法</li>
+<li>时空坐标法</li>
+<li>邮票图表法</li>
+</ul>
+<hr>
+<p><strong><em>地理空间数据可视化</em></strong></p>
+<h3 id="地图投影"><a href="#地图投影" class="headerlink" title="地图投影"></a>地图投影</h3><ul>
+<li><p>地图投影</p>
+<p>地图投影</p>
+<ul>
+<li>等角(正形)投影</li>
+<li>等面积投影</li>
+<li>等距投影</li>
+<li>方位投影</li>
+<li>反方向投影</li>
+</ul>
+<img src="/2022/06/15/Visualization/shadow_obj.png" class="" title="投影对象的三种类型">
+<p>常用地图投影方法</p>
+<ul>
+<li>墨卡托投影</li>
+<li>兰伯特投影</li>
+<li>哈默-阿伊托夫投影</li>
+<li>摩尔威德投影</li>
+<li>余弦投影</li>
+<li>亚尔勃斯投影</li>
+</ul>
+</li>
+<li><p>地理空间常用可视化变量</p>
+<ul>
+<li>大小</li>
+<li>形状</li>
+<li>亮度</li>
+<li>颜色</li>
+<li>方向</li>
+<li>间距</li>
+<li>高度</li>
+<li>布局</li>
+</ul>
+</li>
+</ul>
+<h3 id="点形数据可视化"><a href="#点形数据可视化" class="headerlink" title="点形数据可视化"></a>点形数据可视化</h3><ul>
+<li>点地图</li>
+<li>像素地图</li>
+</ul>
+<h3 id="线性数据可视化"><a href="#线性数据可视化" class="headerlink" title="线性数据可视化"></a>线性数据可视化</h3><ul>
+<li>网络地图</li>
+<li>流量地图</li>
+</ul>
+<h3 id="区域数据可视化"><a href="#区域数据可视化" class="headerlink" title="区域数据可视化"></a>区域数据可视化</h3><ul>
+<li>等值线图</li>
+<li>等值区间地图</li>
+<li>比较统计地图</li>
+</ul>
+<h3 id="基于地理位置的综合信息可视化"><a href="#基于地理位置的综合信息可视化" class="headerlink" title="基于地理位置的综合信息可视化"></a>基于地理位置的综合信息可视化</h3><hr>
+<p><strong><em>高维非空间数据可视化</em></strong></p>
+<h3 id="高维数据变换"><a href="#高维数据变换" class="headerlink" title="高维数据变换"></a><em>高维数据变换</em></h3><ul>
+<li>主成分分析法</li>
+<li>多维尺度分析法</li>
+<li>等距映射法</li>
+<li>局部线性嵌入法</li>
+</ul>
+<h3 id="高维数据的可视化呈现"><a href="#高维数据的可视化呈现" class="headerlink" title="高维数据的可视化呈现"></a>高维数据的可视化呈现</h3><ul>
+<li>基于点</li>
+<li>基于线</li>
+<li>基于区域</li>
+<li>基于样本</li>
+</ul>
+<hr>
+<p><strong><em>层次和网络数据可视化</em></strong></p>
+<h3 id="层次数据可视化"><a href="#层次数据可视化" class="headerlink" title="层次数据可视化"></a><em>层次数据可视化</em></h3><ul>
+<li><p>结点链接法</p>
+<p>图论中树的拓展</p>
+<ul>
+<li>优：直观，结构清晰</li>
+<li>缺：可能出现空间浪费或视觉混淆</li>
+</ul>
+<p>方法：</p>
+<ul>
+<li>正交布局</li>
+<li>径向布局</li>
+<li>三维布局(少用，人更容易识别二维)</li>
+</ul>
+</li>
+<li><p>空间嵌套填充法</p>
+<p>基于区域的可视化方法</p>
+<ul>
+<li>优：可读性高；具有距离相关性；稳定性高</li>
+<li>缺：</li>
+</ul>
+<p>方法：</p>
+<ul>
+<li>圆填充图</li>
+<li>树图</li>
+<li>Voronoi图</li>
+</ul>
+</li>
+<li><p>混合型</p>
+</li>
+</ul>
+<h3 id="网络数据可视化"><a href="#网络数据可视化" class="headerlink" title="网络数据可视化"></a><em>网络数据可视化</em></h3><ul>
+<li>结点链接法</li>
+<li>相邻矩阵布局</li>
+<li>其他方法</li>
+</ul>
+<hr>
+<p><strong><em>跨媒体数据可视化</em></strong></p>
+<h3 id="文本与文档可视化"><a href="#文本与文档可视化" class="headerlink" title="文本与文档可视化"></a>文本与文档可视化</h3><ul>
+<li>单文本内容可视化</li>
+<li>多文档可视化</li>
+<li>时序型文本可视化</li>
+<li>特殊文本可视化</li>
+</ul>
+<h3 id="文本可视化流程"><a href="#文本可视化流程" class="headerlink" title="文本可视化流程"></a>文本可视化流程</h3><ol>
+<li><p>文本处理</p>
+<ol>
+<li>文本数据预处理</li>
+<li>特征抽取</li>
+<li>特征度量</li>
+</ol>
+</li>
+<li><p>可视化映射</p>
+<p><em>上一小节内容</em></p>
+</li>
+<li><p>交互</p>
+</li>
+</ol>
+<hr>
+<h3 id="可视化交互方法"><a href="#可视化交互方法" class="headerlink" title="可视化交互方法"></a>可视化交互方法</h3><ul>
+<li>选择</li>
+<li>探索</li>
+<li>布局</li>
+<li>可视化编码</li>
+<li>抽象/具体</li>
+<li>过滤</li>
+<li>链接</li>
+</ul>
+<hr>
+<h3 id="科学可视化软件"><a href="#科学可视化软件" class="headerlink" title="科学可视化软件"></a>科学可视化软件</h3><ul>
+<li>3D Slicer —— 医学</li>
+<li>Amira —— 生命科学</li>
+<li>ArcGIS —— 地理信息</li>
+</ul>
+<h3 id="信息可视化软件"><a href="#信息可视化软件" class="headerlink" title="信息可视化软件"></a>信息可视化软件</h3><ul>
+<li>Axiis</li>
+<li>CiteSpace</li>
+<li>Flare</li>
+<li>R</li>
+<li>Tableau</li>
+</ul>
+<h3 id="可视分析软件"><a href="#可视分析软件" class="headerlink" title="可视分析软件"></a>可视分析软件</h3><ul>
+<li>GapMinder</li>
+<li>Google Punlic Data Explorer</li>
+<li>Palantir</li>
+</ul>
+]]></content>
+      <categories>
+        <category>可视化</category>
+      </categories>
+      <tags>
+        <tag>可视化</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Python相对路径问题</title>
     <url>/2022/06/07/PythonPathProblem/</url>
     <content><![CDATA[<p>昨天在运行python代码的时候遇到了相对路径出错问题，之前也是遇到过这个问题，但是一直没有认真看懂。</p>
@@ -710,10 +1007,10 @@
         <category>LeetCode</category>
       </categories>
       <tags>
+        <tag>python</tag>
         <tag>数据结构与算法</tag>
         <tag>动态规划</tag>
         <tag>Java</tag>
-        <tag>python</tag>
         <tag>LeetCode</tag>
       </tags>
   </entry>
