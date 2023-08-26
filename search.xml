@@ -1,406 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>动态规划</title>
-    <url>/2022/04/04/DynamicProgramming/</url>
-    <content><![CDATA[<h4 id="什么是动态规划"><a href="#什么是动态规划" class="headerlink" title="什么是动态规划"></a><em><a href="https://www.zhihu.com/question/23995189">什么是动态规划</a></em></h4><p>动态规划算法通常用于求解具有某种最优性质的问题。在这类问题中，可能会有许多可行解。每一个解都对应于一个值，我们希望找到具有最优值的解。</p>
-<p>其基本思想也是将待求解问题分解成若干个子问题，先求解子问题，然后从这些子问题的解得到原问题的解。</p>
-<span id="more"></span>
-<h4 id="746-使用最小花费爬楼梯"><a href="#746-使用最小花费爬楼梯" class="headerlink" title="746. 使用最小花费爬楼梯"></a><a href="https://leetcode-cn.com/problems/min-cost-climbing-stairs/">746. 使用最小花费爬楼梯</a></h4><p>假设数组<code>cost</code>的长度为 <strong>n</strong> ，则 <strong>n</strong> 个阶梯分别对应下标 <code>0</code> 到 <code>n-1</code>，楼层顶部对应下标 <strong>n</strong>，问题等价于计算达到下标 <strong>n</strong> 的最小花费</p>
-<p>由于可以选择下标 <strong>0</strong> 或 <strong>1</strong> 作为初始阶梯，因此有 <code>dp[0]</code> <strong>=</strong> <code>dp[1]</code> <strong>=</strong> <code>0</code></p>
-<p>当<code>2 ≤ i ≤ n</code> 时，可以从下标为 <code>i - 1</code> 或者 <code>i - 2</code> 获取花费的金额，选取两者中最小的那个加上当前已花费的金额</p>
-<p><strong>Java</strong></p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">minCostClimbingStairs</span><span class="params">(<span class="type">int</span>[] cost)</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">prev</span> <span class="operator">=</span> <span class="number">0</span>, curr = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">2</span>; i &lt;= cost.length; i++) &#123;</span><br><span class="line">            <span class="type">int</span> <span class="variable">next</span> <span class="operator">=</span> Math.min(curr + cost[i - <span class="number">1</span>], prev + cost[i - <span class="number">2</span>]);</span><br><span class="line">            prev = curr;</span><br><span class="line">            curr = next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> curr;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><strong>Python</strong></p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">minCostClimbingStairs</span>(<span class="params">self, cost: <span class="type">List</span>[<span class="built_in">int</span>]</span>) -&gt; <span class="built_in">int</span>:</span><br><span class="line">        prev = <span class="number">0</span></span><br><span class="line">        curr = <span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">2</span>, <span class="built_in">len</span>(cost) + <span class="number">1</span>):</span><br><span class="line">            minTag = <span class="built_in">min</span>(curr + cost[i - <span class="number">1</span>], prev + cost[i - <span class="number">2</span>])</span><br><span class="line">            prev = curr</span><br><span class="line">            curr = minTag</span><br><span class="line">        <span class="keyword">return</span> curr</span><br></pre></td></tr></table></figure>
-<p><br></p>
-<h4 id="213-打家劫舍-II"><a href="#213-打家劫舍-II" class="headerlink" title="213. 打家劫舍 II"></a><a href="https://leetcode-cn.com/problems/house-robber-ii/">213. 打家劫舍 II</a></h4><p>首先考虑最简单的情况。如果只有一间房屋，则偷窃该房屋，可以偷窃到最高总金额。如果只有两间房屋，则由于两间房屋相邻，不能同时偷窃，只能偷窃其中的一间房屋，因此选择其中金额较高的房屋进行偷窃，可以偷窃到最高总金额。</p>
-<p>当房间数超过两间，这我们可以按照<strong>不偷第一间</strong>和<strong>不偷最后一间</strong>两种情况进行区分。</p>
-<ul>
-<li><strong>不偷第一间</strong>，则下标范围为 <code>(0, n - 2)</code></li>
-<li><strong>不偷最后一间</strong>，则下标范围为<code>(1, n - 1)</code></li>
-</ul>
-<p>在范围内查找最大值即可</p>
-<p><strong>Java</strong></p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">rob</span><span class="params">(<span class="type">int</span>[] nums)</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">length</span> <span class="operator">=</span> nums.length;</span><br><span class="line">        <span class="keyword">if</span> (length == <span class="number">1</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> nums[<span class="number">0</span>];</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (length == <span class="number">2</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> Math.max(nums[<span class="number">0</span>], nums[<span class="number">1</span>]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> Math.max(robFlag(<span class="number">0</span>, length - <span class="number">2</span>, nums), robFlag(<span class="number">1</span>, length - <span class="number">1</span>, nums));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">robFlag</span><span class="params">(<span class="type">int</span> start, <span class="type">int</span> end, <span class="type">int</span>[] nums)</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">curr</span> <span class="operator">=</span> nums[start], max = Math.max(nums[start], nums[start + <span class="number">1</span>]);</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> start + <span class="number">2</span>; i &lt;= end; i++) &#123;</span><br><span class="line">            <span class="type">int</span> <span class="variable">temp</span> <span class="operator">=</span> max;</span><br><span class="line">            max = Math.max(curr + nums[i], max);</span><br><span class="line">            curr = temp;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> max;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><br></p>
-<h4 id="740-删除并获得点数"><a href="#740-删除并获得点数" class="headerlink" title="740. 删除并获得点数"></a><a href="https://leetcode-cn.com/problems/delete-and-earn/">740. 删除并获得点数</a></h4><p>每次操作中，选择任意一个 <code>nums[i]</code> ，删除它和所有等于 <code>nums[i] - 1</code> 和 <code>nums[i] + 1</code> 的元素，最后获得 <code>nums[i]</code> 的点数。</p>
-<p>这道题将所有数字的点数相加后，会变成打家劫舍问题。因为<code>nums[i]</code>的范围为<code>1 ~ 10000</code>，则我们可以创建一个长度为<strong>10000</strong>的数组，然后因为相邻数字会被删除，可看做相邻数字不能被打劫</p>
-<p><strong>Java</strong></p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">deleteAndEarn</span><span class="params">(<span class="type">int</span>[] nums)</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (nums.length == <span class="number">1</span>) <span class="keyword">return</span> nums[<span class="number">0</span>];</span><br><span class="line">        <span class="type">int</span>[] trans = <span class="keyword">new</span> <span class="title class_">int</span>[<span class="number">10001</span>];</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> num : nums) &#123;</span><br><span class="line">            trans[num] += num;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">int</span> <span class="variable">p</span> <span class="operator">=</span> <span class="number">0</span>, q = trans[<span class="number">1</span>], max = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">2</span>; i &lt; trans.length; i++) &#123;</span><br><span class="line">            max = Math.max(q, p + trans[i]);</span><br><span class="line">            p = q;</span><br><span class="line">            q = max;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> max;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><br></p>
-<h4 id="918-环形子数组的最大和"><a href="#918-环形子数组的最大和" class="headerlink" title="918. 环形子数组的最大和"></a><a href="https://leetcode-cn.com/problems/maximum-sum-circular-subarray/">918. 环形子数组的最大和</a></h4><p><strong>Kadane 算法</strong></p>
-<p>这题一共有两种情况（也就是相当于比53题多了一种最大子数组和是首尾连接的情况）</p>
-<ul>
-<li><strong>第一种情况：</strong>这个子数组不是环状的，就是说首尾不相连。</li>
-<li><strong>第二种情况：</strong>这个子数组一部分在首部，一部分在尾部，我们可以将这第二种情况转换成第一种情况</li>
-</ul>
-<p>如下图：</p>
-<img src="/2022/04/04/DynamicProgramming/918_1.png" class="">
-<p>所以这最大的环形子数组和 = <strong>max(最大子数组和，数组总和-最小子数组和)</strong></p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">maxSubarraySumCircular</span><span class="params">(<span class="type">int</span>[] nums)</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">sum</span> <span class="operator">=</span> <span class="number">0</span>, maxSum = nums[<span class="number">0</span>], minSum = nums[<span class="number">0</span>], currMax = <span class="number">0</span>, currMin = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> num : nums) &#123;</span><br><span class="line">            currMax = Math.max(currMax + num, num);</span><br><span class="line">            currMin = Math.min(currMin + num, num);</span><br><span class="line">            maxSum = Math.max(currMax, maxSum);</span><br><span class="line">            minSum = Math.min(currMin, minSum);</span><br><span class="line">            sum += num;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> maxSum &gt; <span class="number">0</span> ? Math.max(maxSum, sum - minSum) : maxSum;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><br></p>
-<h4 id="1014-最佳观光组合"><a href="#1014-最佳观光组合" class="headerlink" title="1014. 最佳观光组合"></a><a href="https://leetcode-cn.com/problems/best-sightseeing-pair/">1014. 最佳观光组合</a></h4><p>稍微给这个公式变形成 <code>A[i]+i+A[j]-j</code> ，这样就可以看成是左 <code>A[i]+i</code> 和右 <code>A[j]-j</code> 两部分和的最大值。</p>
-<p>随着遍历数组，我们对两部分和取最大值，并且若当前的值减下标对之和比之前更大，我们就更新left部分的值即可</p>
-<p><strong>Java</strong></p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">maxScoreSightseeingPair</span><span class="params">(<span class="type">int</span>[] values)</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">tmp</span> <span class="operator">=</span> values[<span class="number">0</span>], ans = Integer.MIN_VALUE;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">1</span>; i &lt; values.length; i++) &#123;</span><br><span class="line">            ans = Math.max(ans, tmp + values[i] - i);</span><br><span class="line">            tmp = Math.max(tmp, values[i] + i);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><br></p>
-<h4 id="309-最佳买卖股票时机含冷冻期"><a href="#309-最佳买卖股票时机含冷冻期" class="headerlink" title="309. 最佳买卖股票时机含冷冻期"></a><a href="https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-with-cooldown/">309. 最佳买卖股票时机含冷冻期</a></h4><p><code>dp[0][1]</code> 只影响 <code>dp[1][2]</code> ，而 <code>dp[1][2]</code> 又是由 <code>dp[0][1]</code> 和 <code>dp[0][2]</code> 共同决定的，而 <code>dp[0][2]</code> 如上文所说，肯定就是 <code>0</code> 。 因此 <code>dp[1][2] = Math.max(dp[0][1], dp[0][2]);</code> ，只要 <code>dp[0][1] ≤ 0</code> 都是不会造成影响的</p>
-<p><strong>Java</strong></p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">maxProfit</span><span class="params">(<span class="type">int</span>[] prices)</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">len</span> <span class="operator">=</span> prices.length;</span><br><span class="line">        <span class="keyword">if</span> (len == <span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// dp[i][0]: 持有股票</span></span><br><span class="line">        <span class="comment">// dp[i][1]: 不持有股票，本日卖出，下一天为冷冻期</span></span><br><span class="line">        <span class="comment">// dp[i][2]: 不持有股票，本日无卖出，下一天非冷冻期</span></span><br><span class="line">        <span class="type">int</span>[][] dp = <span class="keyword">new</span> <span class="title class_">int</span>[len][<span class="number">3</span>];</span><br><span class="line">        dp[<span class="number">0</span>][<span class="number">0</span>] = -prices[<span class="number">0</span>];</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">1</span>; i &lt; len; i++) &#123;</span><br><span class="line">            <span class="comment">// 持有股票: 1.昨天持有股票 2.本日买入（条件：昨天不持有）</span></span><br><span class="line">            dp[i][<span class="number">0</span>] = Math.max(dp[i - <span class="number">1</span>][<span class="number">0</span>], dp[i - <span class="number">1</span>][<span class="number">2</span>] - prices[i]);</span><br><span class="line"></span><br><span class="line">            <span class="comment">// 本日卖出: (条件:昨天持有)</span></span><br><span class="line">            dp[i][<span class="number">1</span>] = dp[i - <span class="number">1</span>][<span class="number">0</span>] + prices[i];</span><br><span class="line"></span><br><span class="line">            <span class="comment">// 不持有，不卖出: 1.昨天卖出，不持有 2.昨天没卖出，但也不持有</span></span><br><span class="line">            dp[i][<span class="number">2</span>] = Math.max(dp[i - <span class="number">1</span>][<span class="number">1</span>], dp[i - <span class="number">1</span>][<span class="number">2</span>]);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 最后一天持有股票不会有收益</span></span><br><span class="line">        <span class="keyword">return</span> Math.max(dp[len - <span class="number">1</span>][<span class="number">1</span>], dp[len - <span class="number">1</span>][<span class="number">2</span>]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><strong>空间优化</strong></p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">maxProfit</span><span class="params">(<span class="type">int</span>[] prices)</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">len</span> <span class="operator">=</span> prices.length;</span><br><span class="line">        <span class="keyword">if</span> (len == <span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// dp0: 持有股票</span></span><br><span class="line">        <span class="comment">// dp1: 不持有股票，本日卖出，下一天为冷冻期</span></span><br><span class="line">        <span class="comment">// dp2: 不持有股票，本日无卖出，下一天非冷冻期</span></span><br><span class="line">        <span class="type">int</span> <span class="variable">dp0</span> <span class="operator">=</span> -prices[<span class="number">0</span>], dp1 = <span class="number">0</span>, dp2 = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">1</span>; i &lt; len; i++) &#123;</span><br><span class="line">            <span class="comment">// 持有股票: 1.昨天持有股票 2.本日买入（条件：昨天不持有）</span></span><br><span class="line">            <span class="type">int</span> <span class="variable">d0</span> <span class="operator">=</span> Math.max(dp0, dp2 - prices[i]);</span><br><span class="line"></span><br><span class="line">            <span class="comment">// 本日卖出: (条件:昨天持有)</span></span><br><span class="line">            <span class="type">int</span> <span class="variable">d1</span> <span class="operator">=</span> dp0 + prices[i];</span><br><span class="line"></span><br><span class="line">            <span class="comment">// 不持有，不卖出: 1.昨天卖出，不持有 2.昨天没卖出，但也不持有</span></span><br><span class="line">            <span class="type">int</span> <span class="variable">d2</span> <span class="operator">=</span> Math.max(dp1, dp2);</span><br><span class="line"></span><br><span class="line">            dp0 = d0;</span><br><span class="line">            dp1 = d1;</span><br><span class="line">            dp2 = d2;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 最后一天持有股票不会有收益</span></span><br><span class="line">        <span class="keyword">return</span> Math.max(dp1, dp2);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><br></p>
-<h4 id="714-买卖股票的最佳时机含手续费"><a href="#714-买卖股票的最佳时机含手续费" class="headerlink" title="714. 买卖股票的最佳时机含手续费"></a><a href="https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-with-transaction-fee/">714. 买卖股票的最佳时机含手续费</a></h4><ul>
-<li><b>sell: </b> 找到最佳卖出价格</li>
-<li><b>buy: </b> 找到最佳买入价格</li>
-</ul>
-<p><strong>Java</strong></p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">maxProfit</span><span class="params">(<span class="type">int</span>[] prices, <span class="type">int</span> fee)</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">buy</span> <span class="operator">=</span> -prices[<span class="number">0</span>], sell = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">1</span>; i &lt; prices.length; i++) &#123;</span><br><span class="line">            sell = Math.max(sell, buy + prices[i] - fee);</span><br><span class="line">            buy = Math.max(buy, sell - prices[i]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> sell;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><br></p>
-]]></content>
-      <categories>
-        <category>数据结构与算法</category>
-        <category>LeetCode</category>
-      </categories>
-      <tags>
-        <tag>数据结构与算法</tag>
-        <tag>动态规划</tag>
-        <tag>Java</tag>
-        <tag>python</tag>
-        <tag>LeetCode</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Python相对路径问题</title>
-    <url>/2022/06/07/PythonPathProblem/</url>
-    <content><![CDATA[<p>昨天在运行python代码的时候遇到了相对路径出错问题，之前也是遇到过这个问题，但是一直没有认真看懂。</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">PS C:\Code\Python&gt; python -u .\架构文件类型转换\main.py</span><br><span class="line">./data/a.output - 转换出错</span><br><span class="line">出错原因为: [Errno 2] No such file or directory: <span class="string">&#x27;./data/a.output&#x27;</span></span><br><span class="line"></span><br><span class="line">./data/b.output - 转换出错</span><br><span class="line">出错原因为: [Errno 2] No such file or directory: <span class="string">&#x27;./data/b.output&#x27;</span></span><br><span class="line"></span><br><span class="line">./data/c.output - 转换出错</span><br><span class="line">出错原因为: [Errno 2] No such file or directory: <span class="string">&#x27;./data/c.output&#x27;</span></span><br><span class="line"></span><br><span class="line">./data/d.output - 转换出错</span><br><span class="line">出错原因为: [Errno 2] No such file or directory: <span class="string">&#x27;./data/d.output&#x27;</span></span><br></pre></td></tr></table></figure>
-<img src="/2022/06/07/PythonPathProblem/1.png" class="" title="python相对路径问题">
-<p>明明 <strong><em>相对路径</em></strong> 输入是正确的，但是运行代码却提示没有找到文件或目录</p>
-<p>一查才发现，所启动python的文件夹，才是入口的路径，而不是被调用的文件所在的路径！！！</p>
-<p>然后将当前文件目录<code>cd</code>到<code>main.py</code>目录下就可以正常运行了</p>
-<img src="/2022/06/07/PythonPathProblem/2.png" class="" title="python相对路径问题">]]></content>
-      <categories>
-        <category>遇到问题</category>
-      </categories>
-      <tags>
-        <tag>python</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>可视化</title>
-    <url>/2022/06/15/Visualization/</url>
-    <content><![CDATA[<h3 id="数据可视化分类"><a href="#数据可视化分类" class="headerlink" title="数据可视化分类"></a><em>数据可视化分类</em></h3><ul>
-<li>科学可视化<ul>
-<li>标量场可视化</li>
-<li>向量场可视化</li>
-<li>张量场可视化</li>
-</ul>
-</li>
-<li>信息可视化</li>
-<li>可视分析学</li>
-</ul>
-<h3 id="数据可视化与其他方向的关系"><a href="#数据可视化与其他方向的关系" class="headerlink" title="数据可视化与其他方向的关系"></a>数据可视化与其他方向的关系</h3><ul>
-<li>图形学与人机交互</li>
-<li>数据库与数据仓库</li>
-<li>数据分析与数据挖掘</li>
-<li>面向领域的可视化方法和技术<ul>
-<li>生命科学可视化</li>
-<li>地理信息可视化</li>
-<li>商业智能可视化</li>
-<li>面向广义数据的视觉设计</li>
-</ul>
-</li>
-</ul>
-<hr>
-<h3 id="格式塔理论"><a href="#格式塔理论" class="headerlink" title="格式塔理论"></a><em>格式塔理论</em></h3><ul>
-<li>贴近原则</li>
-<li>相似原则</li>
-<li>连续原则</li>
-<li>闭合原则</li>
-<li>共势原则</li>
-<li>好图原则</li>
-<li>对称性原则</li>
-<li>经验原则</li>
-</ul>
-<h3 id="视觉通道类型"><a href="#视觉通道类型" class="headerlink" title="视觉通道类型"></a>视觉通道类型</h3><ul>
-<li>空间</li>
-<li>标记</li>
-<li>位置</li>
-<li>尺寸</li>
-<li>颜色</li>
-<li>亮度</li>
-<li>饱和度</li>
-<li>色调</li>
-<li>配色方案</li>
-<li>透明度</li>
-<li>方向</li>
-<li>形状</li>
-<li>纹理</li>
-<li>动画</li>
-</ul>
-<h3 id="视觉通道的表现力评判标准"><a href="#视觉通道的表现力评判标准" class="headerlink" title="视觉通道的表现力评判标准"></a><em>视觉通道的表现力评判标准</em></h3><ul>
-<li>精确性</li>
-<li>可辨性</li>
-<li>可分离性</li>
-<li>视觉突出</li>
-</ul>
-<hr>
-<h3 id="数据属性"><a href="#数据属性" class="headerlink" title="数据属性"></a>数据属性</h3><ul>
-<li>类别型 —— 商品类别(多元)；客户性别(二元)</li>
-<li>序数型 —— 销售时间(时间先后)</li>
-<li>数值型 —— 商品单价</li>
-</ul>
-<h3 id="数据相似性度量"><a href="#数据相似性度量" class="headerlink" title="数据相似性度量"></a><em>数据相似性度量</em></h3><ul>
-<li>类别型属性</li>
-<li>比值型数值属性</li>
-<li>序数型属性</li>
-<li>区间型数值属性</li>
-</ul>
-<h3 id="数据不确定性"><a href="#数据不确定性" class="headerlink" title="数据不确定性"></a><em>数据不确定性</em></h3><ul>
-<li>数据本身存在误差</li>
-<li>数据集合从低精度转换到高精度的过程中引入的不确定性</li>
-<li>满足特殊应用需求（保护隐私等）</li>
-<li>缺失值处理</li>
-<li>数据集成</li>
-</ul>
-<h3 id="数据存储"><a href="#数据存储" class="headerlink" title="数据存储"></a>数据存储</h3><ul>
-<li>文件存储</li>
-<li>数据库</li>
-<li>数据仓库</li>
-<li>数据存储与可视化</li>
-</ul>
-<h3 id="数据分析"><a href="#数据分析" class="headerlink" title="数据分析"></a>数据分析</h3><ul>
-<li>统计分析法</li>
-<li>探索性数据分析</li>
-<li>数据挖掘<ul>
-<li>分类与预测</li>
-<li>聚类分析</li>
-<li>关联分析</li>
-<li>异常分析</li>
-</ul>
-</li>
-<li>可是数据挖掘和可视分析</li>
-</ul>
-<hr>
-<h3 id="数据可视化处理流程"><a href="#数据可视化处理流程" class="headerlink" title="数据可视化处理流程"></a><em>数据可视化处理流程</em></h3><img src="/2022/06/15/Visualization/Vis_Pro.png" class="" title="可视化流程">
-<ol>
-<li>数据采集</li>
-<li>数据处理和变换</li>
-<li>可视化映射</li>
-<li>用户感知</li>
-</ol>
-<h3 id="数据处理"><a href="#数据处理" class="headerlink" title="数据处理"></a>数据处理</h3><ul>
-<li>数据滤波</li>
-<li>数据降维</li>
-<li>数据采样</li>
-<li>数据聚类和剖分</li>
-</ul>
-<hr>
-<p><strong><em>时空数据可视化</em></strong></p>
-<h3 id="二维标量数据可视化"><a href="#二维标量数据可视化" class="headerlink" title="二维标量数据可视化"></a><em>二维标量数据可视化</em></h3><ul>
-<li>颜色映射法</li>
-<li>等值线提取法</li>
-<li>高度映射法</li>
-<li>标记法</li>
-</ul>
-<h3 id="三维标量数据可视化"><a href="#三维标量数据可视化" class="headerlink" title="三维标量数据可视化"></a><em>三维标量数据可视化</em></h3><ul>
-<li>等值面绘制</li>
-<li>直接体绘制<ul>
-<li>图像空间方法</li>
-<li>数据空间方法</li>
-<li>传输函数设计</li>
-</ul>
-</li>
-</ul>
-<h3 id="多变量空间数据可视化"><a href="#多变量空间数据可视化" class="headerlink" title="多变量空间数据可视化"></a>多变量空间数据可视化</h3><ul>
-<li>常规多变量数据可视化</li>
-<li>矢量场数据可视化</li>
-<li>张量场数据可视化</li>
-</ul>
-<h3 id="时间序列数据可视化"><a href="#时间序列数据可视化" class="headerlink" title="时间序列数据可视化"></a>时间序列数据可视化</h3><ul>
-<li>周期时间可视化</li>
-<li>日历可视化</li>
-<li>时间线可视化</li>
-<li>动画显示法</li>
-<li>时空坐标法</li>
-<li>邮票图表法</li>
-</ul>
-<hr>
-<p><strong><em>地理空间数据可视化</em></strong></p>
-<h3 id="地图投影"><a href="#地图投影" class="headerlink" title="地图投影"></a>地图投影</h3><ul>
-<li><p>地图投影</p>
-<p>地图投影</p>
-<ul>
-<li>等角(正形)投影</li>
-<li>等面积投影</li>
-<li>等距投影</li>
-<li>方位投影</li>
-<li>反方向投影</li>
-</ul>
-<img src="/2022/06/15/Visualization/shadow_obj.png" class="" title="投影对象的三种类型">
-<p>常用地图投影方法</p>
-<ul>
-<li>墨卡托投影</li>
-<li>兰伯特投影</li>
-<li>哈默-阿伊托夫投影</li>
-<li>摩尔威德投影</li>
-<li>余弦投影</li>
-<li>亚尔勃斯投影</li>
-</ul>
-</li>
-<li><p>地理空间常用可视化变量</p>
-<ul>
-<li>大小</li>
-<li>形状</li>
-<li>亮度</li>
-<li>颜色</li>
-<li>方向</li>
-<li>间距</li>
-<li>高度</li>
-<li>布局</li>
-</ul>
-</li>
-</ul>
-<h3 id="点形数据可视化"><a href="#点形数据可视化" class="headerlink" title="点形数据可视化"></a>点形数据可视化</h3><ul>
-<li>点地图</li>
-<li>像素地图</li>
-</ul>
-<h3 id="线性数据可视化"><a href="#线性数据可视化" class="headerlink" title="线性数据可视化"></a>线性数据可视化</h3><ul>
-<li>网络地图</li>
-<li>流量地图</li>
-</ul>
-<h3 id="区域数据可视化"><a href="#区域数据可视化" class="headerlink" title="区域数据可视化"></a>区域数据可视化</h3><ul>
-<li>等值线图</li>
-<li>等值区间地图</li>
-<li>比较统计地图</li>
-</ul>
-<h3 id="基于地理位置的综合信息可视化"><a href="#基于地理位置的综合信息可视化" class="headerlink" title="基于地理位置的综合信息可视化"></a>基于地理位置的综合信息可视化</h3><hr>
-<p><strong><em>高维非空间数据可视化</em></strong></p>
-<h3 id="高维数据变换"><a href="#高维数据变换" class="headerlink" title="高维数据变换"></a><em>高维数据变换</em></h3><ul>
-<li>主成分分析法</li>
-<li>多维尺度分析法</li>
-<li>等距映射法</li>
-<li>局部线性嵌入法</li>
-</ul>
-<h3 id="高维数据的可视化呈现"><a href="#高维数据的可视化呈现" class="headerlink" title="高维数据的可视化呈现"></a>高维数据的可视化呈现</h3><ul>
-<li>基于点</li>
-<li>基于线</li>
-<li>基于区域</li>
-<li>基于样本</li>
-</ul>
-<hr>
-<p><strong><em>层次和网络数据可视化</em></strong></p>
-<h3 id="层次数据可视化"><a href="#层次数据可视化" class="headerlink" title="层次数据可视化"></a><em>层次数据可视化</em></h3><ul>
-<li><p>结点链接法</p>
-<p>图论中树的拓展</p>
-<ul>
-<li>优：直观，结构清晰</li>
-<li>缺：可能出现空间浪费或视觉混淆</li>
-</ul>
-<p>方法：</p>
-<ul>
-<li>正交布局</li>
-<li>径向布局</li>
-<li>三维布局(少用，人更容易识别二维)</li>
-</ul>
-</li>
-<li><p>空间嵌套填充法</p>
-<p>基于区域的可视化方法</p>
-<ul>
-<li>优：可读性高；具有距离相关性；稳定性高</li>
-<li>缺：</li>
-</ul>
-<p>方法：</p>
-<ul>
-<li>圆填充图</li>
-<li>树图</li>
-<li>Voronoi图</li>
-</ul>
-</li>
-<li><p>混合型</p>
-</li>
-</ul>
-<h3 id="网络数据可视化"><a href="#网络数据可视化" class="headerlink" title="网络数据可视化"></a><em>网络数据可视化</em></h3><ul>
-<li>结点链接法</li>
-<li>相邻矩阵布局</li>
-<li>其他方法</li>
-</ul>
-<hr>
-<p><strong><em>跨媒体数据可视化</em></strong></p>
-<h3 id="文本与文档可视化"><a href="#文本与文档可视化" class="headerlink" title="文本与文档可视化"></a>文本与文档可视化</h3><ul>
-<li>单文本内容可视化</li>
-<li>多文档可视化</li>
-<li>时序型文本可视化</li>
-<li>特殊文本可视化</li>
-</ul>
-<h3 id="文本可视化流程"><a href="#文本可视化流程" class="headerlink" title="文本可视化流程"></a>文本可视化流程</h3><ol>
-<li><p>文本处理</p>
-<ol>
-<li>文本数据预处理</li>
-<li>特征抽取</li>
-<li>特征度量</li>
-</ol>
-</li>
-<li><p>可视化映射</p>
-<p><em>上一小节内容</em></p>
-</li>
-<li><p>交互</p>
-</li>
-</ol>
-<hr>
-<h3 id="可视化交互方法"><a href="#可视化交互方法" class="headerlink" title="可视化交互方法"></a>可视化交互方法</h3><ul>
-<li>选择</li>
-<li>探索</li>
-<li>布局</li>
-<li>可视化编码</li>
-<li>抽象/具体</li>
-<li>过滤</li>
-<li>链接</li>
-</ul>
-<hr>
-<h3 id="科学可视化软件"><a href="#科学可视化软件" class="headerlink" title="科学可视化软件"></a>科学可视化软件</h3><ul>
-<li>3D Slicer —— 医学</li>
-<li>Amira —— 生命科学</li>
-<li>ArcGIS —— 地理信息</li>
-</ul>
-<h3 id="信息可视化软件"><a href="#信息可视化软件" class="headerlink" title="信息可视化软件"></a>信息可视化软件</h3><ul>
-<li>Axiis</li>
-<li>CiteSpace</li>
-<li>Flare</li>
-<li>R</li>
-<li>Tableau</li>
-</ul>
-<h3 id="可视分析软件"><a href="#可视分析软件" class="headerlink" title="可视分析软件"></a>可视分析软件</h3><ul>
-<li>GapMinder</li>
-<li>Google Punlic Data Explorer</li>
-<li>Palantir</li>
-</ul>
-]]></content>
-      <categories>
-        <category>可视化</category>
-      </categories>
-      <tags>
-        <tag>可视化</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>我的第一篇博客</title>
-    <url>/2022/03/31/first-blog/</url>
-    <content><![CDATA[<p>欢迎来到这！这是测试</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Hello</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span>&#123;</span><br><span class="line">		System.out.println(<span class="string">&quot;Hello World!&quot;</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<span id="more"></span>
-<img src="/2022/03/31/first-blog/logo.png" class="" title="alt">
-<img src="/2022/03/31/first-blog/4.jpg" class="">]]></content>
-      <categories>
-        <category>日记</category>
-      </categories>
-      <tags>
-        <tag>日记</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>高等数学常用公式汇总</title>
     <url>/2022/04/22/AdvancedMathematics/</url>
     <content><![CDATA[<head>
@@ -437,6 +37,10 @@
 <p><code>cos$\frac&#123;α&#125;&#123;2&#125;$</code> = <code>±$\sqrt&#123;\frac&#123;1 + cosα&#125;&#123;2&#125;&#125;$</code></p>
 <p><code>tan$\frac&#123;α&#125;&#123;2&#125;$</code> = <code>±$\sqrt&#123;\frac&#123;1 - cosα&#125;&#123;1 + cosα&#125;&#125;$</code></p>
 <p><code>sin$\frac&#123;θ&#125;&#123;2&#125;$</code> = <code>$\frac&#123;1 - cosθ&#125;&#123;sinθ&#125;$</code> = <code>$\frac&#123;sinθ&#125;&#123;1 + cosθ&#125;$</code></p>
+<h3 id="和角"><a href="#和角" class="headerlink" title="和角"></a>和角</h3><p>$\sin(\alpha\pm\beta)\ =\ \sin\alpha\cdot\cos\beta\ \pm\ \cos\beta\cdot\sin\alpha$</p>
+<p>$\cos(\alpha\pm\beta)\ =\ \cos\alpha\cdot\cos\beta\ \mp\ \sin\beta\cdot\sin\alpha$</p>
+<p>$\tan(\alpha\pm\beta)\ =\ \frac{(\tan\alpha\ \pm\ \tan\beta)}{1\ \mp\ \tan\alpha\cdot\tan\beta}$</p>
+<p>$\sin(\alpha+\beta+\gamma)\ =\ \sin\alpha\cdot\cos\beta\cdot\cos\gamma\ +\ \cos\alpha\cdot\sin\beta\cdot\cos\gamma\\\qquad\qquad\qquad\qquad+\ \cos\alpha\cdot\cos\beta\cdot\sin\gamma\ -\ \sin\alpha\cdot\sin\beta\cdot\sin\gamma$</p>
 <p><br></p>
 <h2 id="极限"><a href="#极限" class="headerlink" title="极限"></a>极限</h2><h3 id="常用等价无穷小代换-lim-limits-x-to-0"><a href="#常用等价无穷小代换-lim-limits-x-to-0" class="headerlink" title="常用等价无穷小代换($\lim\limits_{x \to 0}$)"></a>常用等价无穷小代换($\lim\limits_{x \to 0}$)</h3><p><code>$x$</code> ~ <code>$sinx$</code> ~ <code>$tanx$</code> ~ <code>$arcsinx$</code> ~ <code>$arctanx$</code> ~ <code>$e^&#123;x&#125; - 1$</code> ~ <code>$ln(1 + x)$</code></p>
 <p><code>$a^x - 1$</code> ~ <code>$xlna$</code></p>
@@ -605,7 +209,7 @@
 </table>
 
 <blockquote>
-<p>  在某点可导的充要条件</p>
+<p>  <strong>在某点可导的充要条件</strong></p>
 <ul>
 <li><p>设 $f(0)=0$，则 $f(x)$ 在点 $x=0$ 可导的<strong><em>充要条件</em></strong>为</p>
 <p>式子的形式为 $\lim\limits_{h\to0}\frac{f(\varphi(h))}{\psi(h)}=\lim\limits_{h\to0}\frac{f(\varphi(h))-f(0)}{\varphi(h)}\cdot\frac{\varphi(h)}{\psi(h)}$</p>
@@ -642,10 +246,15 @@
 <li>$(\text{arccot} x)^{′} = -\frac{1}{1 + x^2}$</li>
 </ol>
 <h3 id="常用高阶导"><a href="#常用高阶导" class="headerlink" title="常用高阶导"></a>常用高阶导</h3><ol>
-<li>$(\sin x)^{(n)} = \sin(x + n\cdot\frac{\pi}{2})$</li>
-<li>$(\cos x)^{(n)} = \cos(x + n\cdot\frac{\pi}{2})$</li>
-<li>$(u \pm v)^{(n)} = u^{(n)} \pm v^{(n)}$</li>
-<li>$(uv)^{(n)} = \sum\limits_{i = 1}^n C{^k_n}u^{(k)}v^{(n-k)}$</li>
+<li><p>$(\sin x)^{(n)} = \sin(x + n\cdot\frac{\pi}{2})$</p>
+<p>$\sin^{(n)}(ax+b)=a^n\sin(ax+b+n\cdot\frac{\pi}{2})$</p>
+</li>
+<li><p>$(\cos x)^{(n)} = \cos(x + n\cdot\frac{\pi}{2})$</p>
+</li>
+<li><p>$(u \pm v)^{(n)} = u^{(n)} \pm v^{(n)}$</p>
+</li>
+<li><p>$(uv)^{(n)} = \sum\limits_{i = 1}^n C{^k_n}u^{(k)}v^{(n-k)}$</p>
+</li>
 </ol>
 <h3 id="隐函数、反函数求导"><a href="#隐函数、反函数求导" class="headerlink" title="隐函数、反函数求导"></a>隐函数、反函数求导</h3><ul>
 <li><p>隐函数：$F(x,y)=0\qquad\frac{\mathrm{d}y}{\mathrm{d}x}=-\frac{F_x}{F_y}$</p>
@@ -655,6 +264,7 @@
 </li>
 </ul>
 <h3 id="常用泰勒公式"><a href="#常用泰勒公式" class="headerlink" title="常用泰勒公式"></a>常用泰勒公式</h3><ol>
+<li>$f(x)=f(x_0)+f^{‘}(x_0)(x-x_0)+\cdots+\frac{f^{(n)}(x_0)}{n!}(x-x_0)^n+o(x)$</li>
 <li>$e^x = 1 + x + \frac{x^2}{2!} + \cdots + \frac{x^n}{n!} + o(x^n)$</li>
 <li>$\sin x = x - \frac{x^3}{3!} + \cdots + (-1)^{n - 1}\frac{x^{2n - 1}}{(2n - 1)!} + o(x^{2n})$</li>
 <li>$\cos x = 1 - \frac{x^2}{2!} + \cdots + (-1)^n \frac{x^{2n}}{(2n)!} + o(x^{2n})$</li>
@@ -663,6 +273,14 @@
 </ol>
 <p><strong>存在</strong> $\alpha(x) \text~ \beta(x) \Rightarrow \alpha(x) = \beta(x) + o(\beta(x))$</p>
 <p><strong>【例】</strong> $\tan x - x \text~ \frac{1}{3}x^3 \Rightarrow \tan x = x + \frac{1}{3}x^3 + o(x^3)$</p>
+<h3 id="复合函数存在性"><a href="#复合函数存在性" class="headerlink" title="复合函数存在性"></a>复合函数存在性</h3><p>$y=f(g(x))$</p>
+<ol>
+<li>$\frac{\mathrm{d}y}{\mathrm{d}x}|_{x=x_0}=f^{‘}(u_0)\cdot g^{‘}(x_0)$，$f^{‘}(u_0)$ 和 $g^{‘}(x_0)$ 都存在</li>
+<li>求 $f(g(x))$ 表达式</li>
+</ol>
+<blockquote>
+<p>  法1 或 法2 必须两个方法都证明 $y=f(g(x))$ 不存在才能说明其不存在</p>
+</blockquote>
 <h3 id="曲线的凹凸性"><a href="#曲线的凹凸性" class="headerlink" title="曲线的凹凸性"></a>曲线的凹凸性</h3><ul>
 <li><strong>凹</strong> <ul>
 <li><strong>定义</strong> $f(\frac{x_1 + x_2}{2}) &lt; \frac{f(x_1)+f(x_2)}{2}$</li>
@@ -690,9 +308,25 @@
 <p>若 $\lim\limits_{x\to\infty}\frac{f(x)}{x}=a$，$b = \lim\limits_{x\to\infty}(f(x)-ax)$，那么 $y=ax+b$ 是曲线的<u>斜渐近线</u></p>
 </li>
 </ul>
+<blockquote>
+<p>  存在等式：$\arctan x+\arctan\frac1x=\frac\pi2\quad(x&gt;0)$</p>
+</blockquote>
+<h3 id="曲率"><a href="#曲率" class="headerlink" title="曲率"></a>曲率</h3><ul>
+<li><p>曲率公式：</p>
+<p>当曲线为 $y=y(x)\qquad K=\frac{|y^{‘’}|}{(1+y^{‘2})^{\frac32}}$</p>
+<p>当曲线为 $\left\{\begin{array}\\x=x(t)\\y=y(t)\end{array}\right.\qquad K=\frac{|y^{‘’}x^{‘}-y^{‘}x^{‘’}|}{(x^{‘2}+y^{‘2})^\frac32}$</p>
+</li>
+<li><p>曲率半径：$\qquad R=\frac1K$</p>
+</li>
+</ul>
 <p><br></p>
 <p><br></p>
-<h2 id="不定积分"><a href="#不定积分" class="headerlink" title="不定积分"></a>不定积分</h2><h3 id="常用不定积分公式"><a href="#常用不定积分公式" class="headerlink" title="常用不定积分公式"></a>常用不定积分公式</h3><ol>
+<h2 id="不定积分"><a href="#不定积分" class="headerlink" title="不定积分"></a>不定积分</h2><h3 id="原函数存在性"><a href="#原函数存在性" class="headerlink" title="原函数存在性"></a>原函数存在性</h3><ol>
+<li>$f(x)$ 在区间 $I$ 上连续 $\ \rightarrow\ $ $f(x)$ 在 $I$ 上有原函数</li>
+<li>$f(x)$ 在区间 $I$ 上不连续 $\ \not\rightarrow\ $ $f(x)$ 在 $I$ 上没有原函数</li>
+<li>$f(x)$ 在区间 $I$ 上有第一类间断点 $\ \rightarrow\ $ $f(x)$ 在 $I$ 上没有原函数</li>
+</ol>
+<h3 id="常用不定积分公式"><a href="#常用不定积分公式" class="headerlink" title="常用不定积分公式"></a>常用不定积分公式</h3><ol>
 <li>$\int0dx=C$</li>
 <li>$\int x^a = \frac{1}{\alpha+1}x^{\alpha+1}+C$  $(α \not= -1)$</li>
 <li>$\int\frac{1}{x}dx=\ln|x|+C$</li>
@@ -735,6 +369,48 @@
 </ol>
 <p><br></p>
 <p><br></p>
+<h2 id="定积分"><a href="#定积分" class="headerlink" title="定积分"></a>定积分</h2><h3 id="定积分得存在性"><a href="#定积分得存在性" class="headerlink" title="定积分得存在性"></a>定积分得存在性</h3><ul>
+<li>必要条件<ul>
+<li>$f(x)$ 有界</li>
+</ul>
+</li>
+<li>充分条件<ul>
+<li>$f(x)$ 在 $[a,b]$ 上连续</li>
+<li>$f(x)$ 在 $[a,b]$ 上有界，且只有<strong>有限个</strong>间断点</li>
+<li>$f(x)$ 在 $[a,b]$ 上仅有<strong>有限个</strong>第一类间断点</li>
+</ul>
+</li>
+</ul>
+<h3 id="特殊定积分"><a href="#特殊定积分" class="headerlink" title="特殊定积分"></a>特殊定积分</h3><p>$\int_0^a\sqrt{a^2-x^2}\mathrm{d}x=\frac{\pi}{4}a^2$</p>
+<p>$\int_0^a\sqrt{2ax-x^2}\mathrm{d}x=\frac{\pi}{4}a^2$</p>
+<p>$\int_0^{2a}\sqrt{2ax-x^2}\mathrm{d}x=\frac{\pi}{2}a^2$</p>
+<p>$\int_a^bf(x)\mathrm{d}x\xlongequal{x=a+b-t}\int_a^bf(a+b-t)\mathrm{d}t$</p>
+<h3 id="几何应用"><a href="#几何应用" class="headerlink" title="几何应用"></a>几何应用</h3><h3 id="物理应用"><a href="#物理应用" class="headerlink" title="物理应用"></a>物理应用</h3><ul>
+<li><p>压力</p>
+<p>压强公式：$p=\rho gh$，其中 $\rho$ 为密度</p>
+<p>压力公式：$F=pS$，压强 × 面积</p>
+</li>
+<li><p>做功（抽水、变力）</p>
+</li>
+</ul>
+<p><br></p>
+<p><br></p>
+<h2 id="反常积分"><a href="#反常积分" class="headerlink" title="反常积分"></a>反常积分</h2><h3 id="柯西不等式"><a href="#柯西不等式" class="headerlink" title="柯西不等式"></a>柯西不等式</h3><p>$\sum\limits_{i=1}^{n}a_i^2\sum\limits_{i=1}^{n}b_i^2\ge(\sum\limits_{i=1}^{n}a_ib_i)^2$，</p>
+<p>当且仅当 $a_1:a_2:\dots:a_n=b_1:b_2:\dots:b_n$ 时等号成立。</p>
+<p><br></p>
+<p><br></p>
+<h2 id="常微分方程"><a href="#常微分方程" class="headerlink" title="常微分方程"></a>常微分方程</h2><p>非齐次的解之差是齐次的解</p>
+<p><br><br></p>
+<h2 id="二重积分"><a href="#二重积分" class="headerlink" title="二重积分"></a>二重积分</h2><h3 id="适合用极坐标计算的二重积分"><a href="#适合用极坐标计算的二重积分" class="headerlink" title="适合用极坐标计算的二重积分"></a>适合用极坐标计算的二重积分</h3><ul>
+<li><p>适合的被积函数</p>
+<p>$f(\sqrt{x^2+y^2}),\ f(\frac yx),\ f(\frac xy)$</p>
+</li>
+<li><p>适合的积分域</p>
+<p>$x^2+y^2\le R^2;\ r^2&lt;x^2+y^2\le R^2;\ x^2+y^2\le 2ax;\ x^2+y^2\le 2by$</p>
+</li>
+</ul>
+<p><strong><em>主要由被积函数决定</em></strong></p>
+<p><br><br></p>
 <h2 id="做题总结"><a href="#做题总结" class="headerlink" title="做题总结"></a>做题总结</h2><h3 id="极限-1"><a href="#极限-1" class="headerlink" title="极限"></a>极限</h3><ul>
 <li><p><strong>【题1】</strong> <b>若 $\lim\limits_{x\to0}\frac{x-\sin ax}{\int^{x}_0\frac{t^2}{\sqrt{b+t^4}}\mathrm{d}t}=2$，则 $a=?,b=?.$ </b></p>
 <p>解：令 $f(t)=t^2,g(t)=\frac{1}{\sqrt{b+t^4}}$</p>
@@ -1190,6 +866,406 @@
         <tag>图</tag>
         <tag>检索</tag>
         <tag>排序</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>可视化</title>
+    <url>/2022/06/15/Visualization/</url>
+    <content><![CDATA[<h3 id="数据可视化分类"><a href="#数据可视化分类" class="headerlink" title="数据可视化分类"></a><em>数据可视化分类</em></h3><ul>
+<li>科学可视化<ul>
+<li>标量场可视化</li>
+<li>向量场可视化</li>
+<li>张量场可视化</li>
+</ul>
+</li>
+<li>信息可视化</li>
+<li>可视分析学</li>
+</ul>
+<h3 id="数据可视化与其他方向的关系"><a href="#数据可视化与其他方向的关系" class="headerlink" title="数据可视化与其他方向的关系"></a>数据可视化与其他方向的关系</h3><ul>
+<li>图形学与人机交互</li>
+<li>数据库与数据仓库</li>
+<li>数据分析与数据挖掘</li>
+<li>面向领域的可视化方法和技术<ul>
+<li>生命科学可视化</li>
+<li>地理信息可视化</li>
+<li>商业智能可视化</li>
+<li>面向广义数据的视觉设计</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="格式塔理论"><a href="#格式塔理论" class="headerlink" title="格式塔理论"></a><em>格式塔理论</em></h3><ul>
+<li>贴近原则</li>
+<li>相似原则</li>
+<li>连续原则</li>
+<li>闭合原则</li>
+<li>共势原则</li>
+<li>好图原则</li>
+<li>对称性原则</li>
+<li>经验原则</li>
+</ul>
+<h3 id="视觉通道类型"><a href="#视觉通道类型" class="headerlink" title="视觉通道类型"></a>视觉通道类型</h3><ul>
+<li>空间</li>
+<li>标记</li>
+<li>位置</li>
+<li>尺寸</li>
+<li>颜色</li>
+<li>亮度</li>
+<li>饱和度</li>
+<li>色调</li>
+<li>配色方案</li>
+<li>透明度</li>
+<li>方向</li>
+<li>形状</li>
+<li>纹理</li>
+<li>动画</li>
+</ul>
+<h3 id="视觉通道的表现力评判标准"><a href="#视觉通道的表现力评判标准" class="headerlink" title="视觉通道的表现力评判标准"></a><em>视觉通道的表现力评判标准</em></h3><ul>
+<li>精确性</li>
+<li>可辨性</li>
+<li>可分离性</li>
+<li>视觉突出</li>
+</ul>
+<hr>
+<h3 id="数据属性"><a href="#数据属性" class="headerlink" title="数据属性"></a>数据属性</h3><ul>
+<li>类别型 —— 商品类别(多元)；客户性别(二元)</li>
+<li>序数型 —— 销售时间(时间先后)</li>
+<li>数值型 —— 商品单价</li>
+</ul>
+<h3 id="数据相似性度量"><a href="#数据相似性度量" class="headerlink" title="数据相似性度量"></a><em>数据相似性度量</em></h3><ul>
+<li>类别型属性</li>
+<li>比值型数值属性</li>
+<li>序数型属性</li>
+<li>区间型数值属性</li>
+</ul>
+<h3 id="数据不确定性"><a href="#数据不确定性" class="headerlink" title="数据不确定性"></a><em>数据不确定性</em></h3><ul>
+<li>数据本身存在误差</li>
+<li>数据集合从低精度转换到高精度的过程中引入的不确定性</li>
+<li>满足特殊应用需求（保护隐私等）</li>
+<li>缺失值处理</li>
+<li>数据集成</li>
+</ul>
+<h3 id="数据存储"><a href="#数据存储" class="headerlink" title="数据存储"></a>数据存储</h3><ul>
+<li>文件存储</li>
+<li>数据库</li>
+<li>数据仓库</li>
+<li>数据存储与可视化</li>
+</ul>
+<h3 id="数据分析"><a href="#数据分析" class="headerlink" title="数据分析"></a>数据分析</h3><ul>
+<li>统计分析法</li>
+<li>探索性数据分析</li>
+<li>数据挖掘<ul>
+<li>分类与预测</li>
+<li>聚类分析</li>
+<li>关联分析</li>
+<li>异常分析</li>
+</ul>
+</li>
+<li>可是数据挖掘和可视分析</li>
+</ul>
+<hr>
+<h3 id="数据可视化处理流程"><a href="#数据可视化处理流程" class="headerlink" title="数据可视化处理流程"></a><em>数据可视化处理流程</em></h3><img src="/2022/06/15/Visualization/Vis_Pro.png" class="" title="可视化流程">
+<ol>
+<li>数据采集</li>
+<li>数据处理和变换</li>
+<li>可视化映射</li>
+<li>用户感知</li>
+</ol>
+<h3 id="数据处理"><a href="#数据处理" class="headerlink" title="数据处理"></a>数据处理</h3><ul>
+<li>数据滤波</li>
+<li>数据降维</li>
+<li>数据采样</li>
+<li>数据聚类和剖分</li>
+</ul>
+<hr>
+<p><strong><em>时空数据可视化</em></strong></p>
+<h3 id="二维标量数据可视化"><a href="#二维标量数据可视化" class="headerlink" title="二维标量数据可视化"></a><em>二维标量数据可视化</em></h3><ul>
+<li>颜色映射法</li>
+<li>等值线提取法</li>
+<li>高度映射法</li>
+<li>标记法</li>
+</ul>
+<h3 id="三维标量数据可视化"><a href="#三维标量数据可视化" class="headerlink" title="三维标量数据可视化"></a><em>三维标量数据可视化</em></h3><ul>
+<li>等值面绘制</li>
+<li>直接体绘制<ul>
+<li>图像空间方法</li>
+<li>数据空间方法</li>
+<li>传输函数设计</li>
+</ul>
+</li>
+</ul>
+<h3 id="多变量空间数据可视化"><a href="#多变量空间数据可视化" class="headerlink" title="多变量空间数据可视化"></a>多变量空间数据可视化</h3><ul>
+<li>常规多变量数据可视化</li>
+<li>矢量场数据可视化</li>
+<li>张量场数据可视化</li>
+</ul>
+<h3 id="时间序列数据可视化"><a href="#时间序列数据可视化" class="headerlink" title="时间序列数据可视化"></a>时间序列数据可视化</h3><ul>
+<li>周期时间可视化</li>
+<li>日历可视化</li>
+<li>时间线可视化</li>
+<li>动画显示法</li>
+<li>时空坐标法</li>
+<li>邮票图表法</li>
+</ul>
+<hr>
+<p><strong><em>地理空间数据可视化</em></strong></p>
+<h3 id="地图投影"><a href="#地图投影" class="headerlink" title="地图投影"></a>地图投影</h3><ul>
+<li><p>地图投影</p>
+<p>地图投影</p>
+<ul>
+<li>等角(正形)投影</li>
+<li>等面积投影</li>
+<li>等距投影</li>
+<li>方位投影</li>
+<li>反方向投影</li>
+</ul>
+<img src="/2022/06/15/Visualization/shadow_obj.png" class="" title="投影对象的三种类型">
+<p>常用地图投影方法</p>
+<ul>
+<li>墨卡托投影</li>
+<li>兰伯特投影</li>
+<li>哈默-阿伊托夫投影</li>
+<li>摩尔威德投影</li>
+<li>余弦投影</li>
+<li>亚尔勃斯投影</li>
+</ul>
+</li>
+<li><p>地理空间常用可视化变量</p>
+<ul>
+<li>大小</li>
+<li>形状</li>
+<li>亮度</li>
+<li>颜色</li>
+<li>方向</li>
+<li>间距</li>
+<li>高度</li>
+<li>布局</li>
+</ul>
+</li>
+</ul>
+<h3 id="点形数据可视化"><a href="#点形数据可视化" class="headerlink" title="点形数据可视化"></a>点形数据可视化</h3><ul>
+<li>点地图</li>
+<li>像素地图</li>
+</ul>
+<h3 id="线性数据可视化"><a href="#线性数据可视化" class="headerlink" title="线性数据可视化"></a>线性数据可视化</h3><ul>
+<li>网络地图</li>
+<li>流量地图</li>
+</ul>
+<h3 id="区域数据可视化"><a href="#区域数据可视化" class="headerlink" title="区域数据可视化"></a>区域数据可视化</h3><ul>
+<li>等值线图</li>
+<li>等值区间地图</li>
+<li>比较统计地图</li>
+</ul>
+<h3 id="基于地理位置的综合信息可视化"><a href="#基于地理位置的综合信息可视化" class="headerlink" title="基于地理位置的综合信息可视化"></a>基于地理位置的综合信息可视化</h3><hr>
+<p><strong><em>高维非空间数据可视化</em></strong></p>
+<h3 id="高维数据变换"><a href="#高维数据变换" class="headerlink" title="高维数据变换"></a><em>高维数据变换</em></h3><ul>
+<li>主成分分析法</li>
+<li>多维尺度分析法</li>
+<li>等距映射法</li>
+<li>局部线性嵌入法</li>
+</ul>
+<h3 id="高维数据的可视化呈现"><a href="#高维数据的可视化呈现" class="headerlink" title="高维数据的可视化呈现"></a>高维数据的可视化呈现</h3><ul>
+<li>基于点</li>
+<li>基于线</li>
+<li>基于区域</li>
+<li>基于样本</li>
+</ul>
+<hr>
+<p><strong><em>层次和网络数据可视化</em></strong></p>
+<h3 id="层次数据可视化"><a href="#层次数据可视化" class="headerlink" title="层次数据可视化"></a><em>层次数据可视化</em></h3><ul>
+<li><p>结点链接法</p>
+<p>图论中树的拓展</p>
+<ul>
+<li>优：直观，结构清晰</li>
+<li>缺：可能出现空间浪费或视觉混淆</li>
+</ul>
+<p>方法：</p>
+<ul>
+<li>正交布局</li>
+<li>径向布局</li>
+<li>三维布局(少用，人更容易识别二维)</li>
+</ul>
+</li>
+<li><p>空间嵌套填充法</p>
+<p>基于区域的可视化方法</p>
+<ul>
+<li>优：可读性高；具有距离相关性；稳定性高</li>
+<li>缺：</li>
+</ul>
+<p>方法：</p>
+<ul>
+<li>圆填充图</li>
+<li>树图</li>
+<li>Voronoi图</li>
+</ul>
+</li>
+<li><p>混合型</p>
+</li>
+</ul>
+<h3 id="网络数据可视化"><a href="#网络数据可视化" class="headerlink" title="网络数据可视化"></a><em>网络数据可视化</em></h3><ul>
+<li>结点链接法</li>
+<li>相邻矩阵布局</li>
+<li>其他方法</li>
+</ul>
+<hr>
+<p><strong><em>跨媒体数据可视化</em></strong></p>
+<h3 id="文本与文档可视化"><a href="#文本与文档可视化" class="headerlink" title="文本与文档可视化"></a>文本与文档可视化</h3><ul>
+<li>单文本内容可视化</li>
+<li>多文档可视化</li>
+<li>时序型文本可视化</li>
+<li>特殊文本可视化</li>
+</ul>
+<h3 id="文本可视化流程"><a href="#文本可视化流程" class="headerlink" title="文本可视化流程"></a>文本可视化流程</h3><ol>
+<li><p>文本处理</p>
+<ol>
+<li>文本数据预处理</li>
+<li>特征抽取</li>
+<li>特征度量</li>
+</ol>
+</li>
+<li><p>可视化映射</p>
+<p><em>上一小节内容</em></p>
+</li>
+<li><p>交互</p>
+</li>
+</ol>
+<hr>
+<h3 id="可视化交互方法"><a href="#可视化交互方法" class="headerlink" title="可视化交互方法"></a>可视化交互方法</h3><ul>
+<li>选择</li>
+<li>探索</li>
+<li>布局</li>
+<li>可视化编码</li>
+<li>抽象/具体</li>
+<li>过滤</li>
+<li>链接</li>
+</ul>
+<hr>
+<h3 id="科学可视化软件"><a href="#科学可视化软件" class="headerlink" title="科学可视化软件"></a>科学可视化软件</h3><ul>
+<li>3D Slicer —— 医学</li>
+<li>Amira —— 生命科学</li>
+<li>ArcGIS —— 地理信息</li>
+</ul>
+<h3 id="信息可视化软件"><a href="#信息可视化软件" class="headerlink" title="信息可视化软件"></a>信息可视化软件</h3><ul>
+<li>Axiis</li>
+<li>CiteSpace</li>
+<li>Flare</li>
+<li>R</li>
+<li>Tableau</li>
+</ul>
+<h3 id="可视分析软件"><a href="#可视分析软件" class="headerlink" title="可视分析软件"></a>可视分析软件</h3><ul>
+<li>GapMinder</li>
+<li>Google Punlic Data Explorer</li>
+<li>Palantir</li>
+</ul>
+]]></content>
+      <categories>
+        <category>可视化</category>
+      </categories>
+      <tags>
+        <tag>可视化</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Python相对路径问题</title>
+    <url>/2022/06/07/PythonPathProblem/</url>
+    <content><![CDATA[<p>昨天在运行python代码的时候遇到了相对路径出错问题，之前也是遇到过这个问题，但是一直没有认真看懂。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">PS C:\Code\Python&gt; python -u .\架构文件类型转换\main.py</span><br><span class="line">./data/a.output - 转换出错</span><br><span class="line">出错原因为: [Errno 2] No such file or directory: <span class="string">&#x27;./data/a.output&#x27;</span></span><br><span class="line"></span><br><span class="line">./data/b.output - 转换出错</span><br><span class="line">出错原因为: [Errno 2] No such file or directory: <span class="string">&#x27;./data/b.output&#x27;</span></span><br><span class="line"></span><br><span class="line">./data/c.output - 转换出错</span><br><span class="line">出错原因为: [Errno 2] No such file or directory: <span class="string">&#x27;./data/c.output&#x27;</span></span><br><span class="line"></span><br><span class="line">./data/d.output - 转换出错</span><br><span class="line">出错原因为: [Errno 2] No such file or directory: <span class="string">&#x27;./data/d.output&#x27;</span></span><br></pre></td></tr></table></figure>
+<img src="/2022/06/07/PythonPathProblem/1.png" class="" title="python相对路径问题">
+<p>明明 <strong><em>相对路径</em></strong> 输入是正确的，但是运行代码却提示没有找到文件或目录</p>
+<p>一查才发现，所启动python的文件夹，才是入口的路径，而不是被调用的文件所在的路径！！！</p>
+<p>然后将当前文件目录<code>cd</code>到<code>main.py</code>目录下就可以正常运行了</p>
+<img src="/2022/06/07/PythonPathProblem/2.png" class="" title="python相对路径问题">]]></content>
+      <categories>
+        <category>遇到问题</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>动态规划</title>
+    <url>/2022/04/04/DynamicProgramming/</url>
+    <content><![CDATA[<h4 id="什么是动态规划"><a href="#什么是动态规划" class="headerlink" title="什么是动态规划"></a><em><a href="https://www.zhihu.com/question/23995189">什么是动态规划</a></em></h4><p>动态规划算法通常用于求解具有某种最优性质的问题。在这类问题中，可能会有许多可行解。每一个解都对应于一个值，我们希望找到具有最优值的解。</p>
+<p>其基本思想也是将待求解问题分解成若干个子问题，先求解子问题，然后从这些子问题的解得到原问题的解。</p>
+<span id="more"></span>
+<h4 id="746-使用最小花费爬楼梯"><a href="#746-使用最小花费爬楼梯" class="headerlink" title="746. 使用最小花费爬楼梯"></a><a href="https://leetcode-cn.com/problems/min-cost-climbing-stairs/">746. 使用最小花费爬楼梯</a></h4><p>假设数组<code>cost</code>的长度为 <strong>n</strong> ，则 <strong>n</strong> 个阶梯分别对应下标 <code>0</code> 到 <code>n-1</code>，楼层顶部对应下标 <strong>n</strong>，问题等价于计算达到下标 <strong>n</strong> 的最小花费</p>
+<p>由于可以选择下标 <strong>0</strong> 或 <strong>1</strong> 作为初始阶梯，因此有 <code>dp[0]</code> <strong>=</strong> <code>dp[1]</code> <strong>=</strong> <code>0</code></p>
+<p>当<code>2 ≤ i ≤ n</code> 时，可以从下标为 <code>i - 1</code> 或者 <code>i - 2</code> 获取花费的金额，选取两者中最小的那个加上当前已花费的金额</p>
+<p><strong>Java</strong></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">minCostClimbingStairs</span><span class="params">(<span class="type">int</span>[] cost)</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">prev</span> <span class="operator">=</span> <span class="number">0</span>, curr = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">2</span>; i &lt;= cost.length; i++) &#123;</span><br><span class="line">            <span class="type">int</span> <span class="variable">next</span> <span class="operator">=</span> Math.min(curr + cost[i - <span class="number">1</span>], prev + cost[i - <span class="number">2</span>]);</span><br><span class="line">            prev = curr;</span><br><span class="line">            curr = next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> curr;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>Python</strong></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">minCostClimbingStairs</span>(<span class="params">self, cost: <span class="type">List</span>[<span class="built_in">int</span>]</span>) -&gt; <span class="built_in">int</span>:</span><br><span class="line">        prev = <span class="number">0</span></span><br><span class="line">        curr = <span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">2</span>, <span class="built_in">len</span>(cost) + <span class="number">1</span>):</span><br><span class="line">            minTag = <span class="built_in">min</span>(curr + cost[i - <span class="number">1</span>], prev + cost[i - <span class="number">2</span>])</span><br><span class="line">            prev = curr</span><br><span class="line">            curr = minTag</span><br><span class="line">        <span class="keyword">return</span> curr</span><br></pre></td></tr></table></figure>
+<p><br></p>
+<h4 id="213-打家劫舍-II"><a href="#213-打家劫舍-II" class="headerlink" title="213. 打家劫舍 II"></a><a href="https://leetcode-cn.com/problems/house-robber-ii/">213. 打家劫舍 II</a></h4><p>首先考虑最简单的情况。如果只有一间房屋，则偷窃该房屋，可以偷窃到最高总金额。如果只有两间房屋，则由于两间房屋相邻，不能同时偷窃，只能偷窃其中的一间房屋，因此选择其中金额较高的房屋进行偷窃，可以偷窃到最高总金额。</p>
+<p>当房间数超过两间，这我们可以按照<strong>不偷第一间</strong>和<strong>不偷最后一间</strong>两种情况进行区分。</p>
+<ul>
+<li><strong>不偷第一间</strong>，则下标范围为 <code>(0, n - 2)</code></li>
+<li><strong>不偷最后一间</strong>，则下标范围为<code>(1, n - 1)</code></li>
+</ul>
+<p>在范围内查找最大值即可</p>
+<p><strong>Java</strong></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">rob</span><span class="params">(<span class="type">int</span>[] nums)</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">length</span> <span class="operator">=</span> nums.length;</span><br><span class="line">        <span class="keyword">if</span> (length == <span class="number">1</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> nums[<span class="number">0</span>];</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (length == <span class="number">2</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> Math.max(nums[<span class="number">0</span>], nums[<span class="number">1</span>]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> Math.max(robFlag(<span class="number">0</span>, length - <span class="number">2</span>, nums), robFlag(<span class="number">1</span>, length - <span class="number">1</span>, nums));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">robFlag</span><span class="params">(<span class="type">int</span> start, <span class="type">int</span> end, <span class="type">int</span>[] nums)</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">curr</span> <span class="operator">=</span> nums[start], max = Math.max(nums[start], nums[start + <span class="number">1</span>]);</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> start + <span class="number">2</span>; i &lt;= end; i++) &#123;</span><br><span class="line">            <span class="type">int</span> <span class="variable">temp</span> <span class="operator">=</span> max;</span><br><span class="line">            max = Math.max(curr + nums[i], max);</span><br><span class="line">            curr = temp;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> max;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><br></p>
+<h4 id="740-删除并获得点数"><a href="#740-删除并获得点数" class="headerlink" title="740. 删除并获得点数"></a><a href="https://leetcode-cn.com/problems/delete-and-earn/">740. 删除并获得点数</a></h4><p>每次操作中，选择任意一个 <code>nums[i]</code> ，删除它和所有等于 <code>nums[i] - 1</code> 和 <code>nums[i] + 1</code> 的元素，最后获得 <code>nums[i]</code> 的点数。</p>
+<p>这道题将所有数字的点数相加后，会变成打家劫舍问题。因为<code>nums[i]</code>的范围为<code>1 ~ 10000</code>，则我们可以创建一个长度为<strong>10000</strong>的数组，然后因为相邻数字会被删除，可看做相邻数字不能被打劫</p>
+<p><strong>Java</strong></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">deleteAndEarn</span><span class="params">(<span class="type">int</span>[] nums)</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (nums.length == <span class="number">1</span>) <span class="keyword">return</span> nums[<span class="number">0</span>];</span><br><span class="line">        <span class="type">int</span>[] trans = <span class="keyword">new</span> <span class="title class_">int</span>[<span class="number">10001</span>];</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> num : nums) &#123;</span><br><span class="line">            trans[num] += num;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">int</span> <span class="variable">p</span> <span class="operator">=</span> <span class="number">0</span>, q = trans[<span class="number">1</span>], max = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">2</span>; i &lt; trans.length; i++) &#123;</span><br><span class="line">            max = Math.max(q, p + trans[i]);</span><br><span class="line">            p = q;</span><br><span class="line">            q = max;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> max;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><br></p>
+<h4 id="918-环形子数组的最大和"><a href="#918-环形子数组的最大和" class="headerlink" title="918. 环形子数组的最大和"></a><a href="https://leetcode-cn.com/problems/maximum-sum-circular-subarray/">918. 环形子数组的最大和</a></h4><p><strong>Kadane 算法</strong></p>
+<p>这题一共有两种情况（也就是相当于比53题多了一种最大子数组和是首尾连接的情况）</p>
+<ul>
+<li><strong>第一种情况：</strong>这个子数组不是环状的，就是说首尾不相连。</li>
+<li><strong>第二种情况：</strong>这个子数组一部分在首部，一部分在尾部，我们可以将这第二种情况转换成第一种情况</li>
+</ul>
+<p>如下图：</p>
+<img src="/2022/04/04/DynamicProgramming/918_1.png" class="">
+<p>所以这最大的环形子数组和 = <strong>max(最大子数组和，数组总和-最小子数组和)</strong></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">maxSubarraySumCircular</span><span class="params">(<span class="type">int</span>[] nums)</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">sum</span> <span class="operator">=</span> <span class="number">0</span>, maxSum = nums[<span class="number">0</span>], minSum = nums[<span class="number">0</span>], currMax = <span class="number">0</span>, currMin = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> num : nums) &#123;</span><br><span class="line">            currMax = Math.max(currMax + num, num);</span><br><span class="line">            currMin = Math.min(currMin + num, num);</span><br><span class="line">            maxSum = Math.max(currMax, maxSum);</span><br><span class="line">            minSum = Math.min(currMin, minSum);</span><br><span class="line">            sum += num;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> maxSum &gt; <span class="number">0</span> ? Math.max(maxSum, sum - minSum) : maxSum;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><br></p>
+<h4 id="1014-最佳观光组合"><a href="#1014-最佳观光组合" class="headerlink" title="1014. 最佳观光组合"></a><a href="https://leetcode-cn.com/problems/best-sightseeing-pair/">1014. 最佳观光组合</a></h4><p>稍微给这个公式变形成 <code>A[i]+i+A[j]-j</code> ，这样就可以看成是左 <code>A[i]+i</code> 和右 <code>A[j]-j</code> 两部分和的最大值。</p>
+<p>随着遍历数组，我们对两部分和取最大值，并且若当前的值减下标对之和比之前更大，我们就更新left部分的值即可</p>
+<p><strong>Java</strong></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">maxScoreSightseeingPair</span><span class="params">(<span class="type">int</span>[] values)</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">tmp</span> <span class="operator">=</span> values[<span class="number">0</span>], ans = Integer.MIN_VALUE;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">1</span>; i &lt; values.length; i++) &#123;</span><br><span class="line">            ans = Math.max(ans, tmp + values[i] - i);</span><br><span class="line">            tmp = Math.max(tmp, values[i] + i);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><br></p>
+<h4 id="309-最佳买卖股票时机含冷冻期"><a href="#309-最佳买卖股票时机含冷冻期" class="headerlink" title="309. 最佳买卖股票时机含冷冻期"></a><a href="https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-with-cooldown/">309. 最佳买卖股票时机含冷冻期</a></h4><p><code>dp[0][1]</code> 只影响 <code>dp[1][2]</code> ，而 <code>dp[1][2]</code> 又是由 <code>dp[0][1]</code> 和 <code>dp[0][2]</code> 共同决定的，而 <code>dp[0][2]</code> 如上文所说，肯定就是 <code>0</code> 。 因此 <code>dp[1][2] = Math.max(dp[0][1], dp[0][2]);</code> ，只要 <code>dp[0][1] ≤ 0</code> 都是不会造成影响的</p>
+<p><strong>Java</strong></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">maxProfit</span><span class="params">(<span class="type">int</span>[] prices)</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">len</span> <span class="operator">=</span> prices.length;</span><br><span class="line">        <span class="keyword">if</span> (len == <span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// dp[i][0]: 持有股票</span></span><br><span class="line">        <span class="comment">// dp[i][1]: 不持有股票，本日卖出，下一天为冷冻期</span></span><br><span class="line">        <span class="comment">// dp[i][2]: 不持有股票，本日无卖出，下一天非冷冻期</span></span><br><span class="line">        <span class="type">int</span>[][] dp = <span class="keyword">new</span> <span class="title class_">int</span>[len][<span class="number">3</span>];</span><br><span class="line">        dp[<span class="number">0</span>][<span class="number">0</span>] = -prices[<span class="number">0</span>];</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">1</span>; i &lt; len; i++) &#123;</span><br><span class="line">            <span class="comment">// 持有股票: 1.昨天持有股票 2.本日买入（条件：昨天不持有）</span></span><br><span class="line">            dp[i][<span class="number">0</span>] = Math.max(dp[i - <span class="number">1</span>][<span class="number">0</span>], dp[i - <span class="number">1</span>][<span class="number">2</span>] - prices[i]);</span><br><span class="line"></span><br><span class="line">            <span class="comment">// 本日卖出: (条件:昨天持有)</span></span><br><span class="line">            dp[i][<span class="number">1</span>] = dp[i - <span class="number">1</span>][<span class="number">0</span>] + prices[i];</span><br><span class="line"></span><br><span class="line">            <span class="comment">// 不持有，不卖出: 1.昨天卖出，不持有 2.昨天没卖出，但也不持有</span></span><br><span class="line">            dp[i][<span class="number">2</span>] = Math.max(dp[i - <span class="number">1</span>][<span class="number">1</span>], dp[i - <span class="number">1</span>][<span class="number">2</span>]);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 最后一天持有股票不会有收益</span></span><br><span class="line">        <span class="keyword">return</span> Math.max(dp[len - <span class="number">1</span>][<span class="number">1</span>], dp[len - <span class="number">1</span>][<span class="number">2</span>]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>空间优化</strong></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">maxProfit</span><span class="params">(<span class="type">int</span>[] prices)</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">len</span> <span class="operator">=</span> prices.length;</span><br><span class="line">        <span class="keyword">if</span> (len == <span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// dp0: 持有股票</span></span><br><span class="line">        <span class="comment">// dp1: 不持有股票，本日卖出，下一天为冷冻期</span></span><br><span class="line">        <span class="comment">// dp2: 不持有股票，本日无卖出，下一天非冷冻期</span></span><br><span class="line">        <span class="type">int</span> <span class="variable">dp0</span> <span class="operator">=</span> -prices[<span class="number">0</span>], dp1 = <span class="number">0</span>, dp2 = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">1</span>; i &lt; len; i++) &#123;</span><br><span class="line">            <span class="comment">// 持有股票: 1.昨天持有股票 2.本日买入（条件：昨天不持有）</span></span><br><span class="line">            <span class="type">int</span> <span class="variable">d0</span> <span class="operator">=</span> Math.max(dp0, dp2 - prices[i]);</span><br><span class="line"></span><br><span class="line">            <span class="comment">// 本日卖出: (条件:昨天持有)</span></span><br><span class="line">            <span class="type">int</span> <span class="variable">d1</span> <span class="operator">=</span> dp0 + prices[i];</span><br><span class="line"></span><br><span class="line">            <span class="comment">// 不持有，不卖出: 1.昨天卖出，不持有 2.昨天没卖出，但也不持有</span></span><br><span class="line">            <span class="type">int</span> <span class="variable">d2</span> <span class="operator">=</span> Math.max(dp1, dp2);</span><br><span class="line"></span><br><span class="line">            dp0 = d0;</span><br><span class="line">            dp1 = d1;</span><br><span class="line">            dp2 = d2;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 最后一天持有股票不会有收益</span></span><br><span class="line">        <span class="keyword">return</span> Math.max(dp1, dp2);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><br></p>
+<h4 id="714-买卖股票的最佳时机含手续费"><a href="#714-买卖股票的最佳时机含手续费" class="headerlink" title="714. 买卖股票的最佳时机含手续费"></a><a href="https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-with-transaction-fee/">714. 买卖股票的最佳时机含手续费</a></h4><ul>
+<li><b>sell: </b> 找到最佳卖出价格</li>
+<li><b>buy: </b> 找到最佳买入价格</li>
+</ul>
+<p><strong>Java</strong></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">maxProfit</span><span class="params">(<span class="type">int</span>[] prices, <span class="type">int</span> fee)</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">buy</span> <span class="operator">=</span> -prices[<span class="number">0</span>], sell = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">1</span>; i &lt; prices.length; i++) &#123;</span><br><span class="line">            sell = Math.max(sell, buy + prices[i] - fee);</span><br><span class="line">            buy = Math.max(buy, sell - prices[i]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> sell;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><br></p>
+]]></content>
+      <categories>
+        <category>数据结构与算法</category>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>数据结构与算法</tag>
+        <tag>动态规划</tag>
+        <tag>Java</tag>
+        <tag>python</tag>
+        <tag>LeetCode</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>我的第一篇博客</title>
+    <url>/2022/03/31/first-blog/</url>
+    <content><![CDATA[<p>欢迎来到这！这是测试</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Hello</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span>&#123;</span><br><span class="line">		System.out.println(<span class="string">&quot;Hello World!&quot;</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<span id="more"></span>
+<img src="/2022/03/31/first-blog/logo.png" class="" title="alt">
+<img src="/2022/03/31/first-blog/4.jpg" class="">]]></content>
+      <categories>
+        <category>日记</category>
+      </categories>
+      <tags>
+        <tag>日记</tag>
       </tags>
   </entry>
 </search>
